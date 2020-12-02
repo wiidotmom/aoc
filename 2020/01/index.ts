@@ -1,38 +1,28 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-let input: string = "";
-
-fs.readFile(path.join(__dirname, 'input.txt'), (error, data) => {
-    input = data.toString();
-
-    let entries: any[] = input.split('\n');
-    entries = entries.map(x => {
-        return Number(x);
-    });
-
+const findSolutionOne = (input: number[]): number => {
     let solution = 0;
-    entries.forEach((entry, index) => {
-        entries.forEach((subEntry, subIndex) => {
-            if(entry + subEntry == 2020){
-                console.log(`${entry} + ${subEntry} = 2020: ${entry + subEntry == 2020}`);
-                solution = entry * subEntry;
-            }
+    input.forEach((entry, index) => {
+        input.forEach((subEntry, subIndex) => {
+            if(entry + subEntry == 2020) solution = entry * subEntry;
         });
     });
-    console.log(`Part 1 Solution: ${solution}`);
+    return solution;
+}
 
-    solution = 0;
-    entries.forEach((entry, index) => {
-        entries.forEach((subEntry, subIndex) => {
-            entries.forEach((subSubEntry, subSubIndex) => {
-                if(entry + subEntry + subSubEntry == 2020){
-                    console.log(`${entry} + ${subEntry} + ${subSubEntry} = 2020: ${entry + subEntry + subSubEntry == 2020}`);
-                    solution = entry * subEntry * subSubEntry;
-                }
+const findSolutionTwo = (input: number[]): number => {
+    let solution = 0;
+    input.forEach((entry, index) => {
+        input.forEach((subEntry, subIndex) => {
+            input.forEach((subSubEntry, subSubIndex) => {
+                if(entry + subEntry + subSubEntry == 2020) solution = entry * subEntry * subSubEntry;
             });
         });
     });
-    console.log(`Part 2 Solution: ${solution}`);
-});
+    return solution;
+}
 
+let data = fs.readFileSync(path.join(__dirname, 'input.txt')).toString().split('\n').map(x => Number(x));
+console.log(`Solution 1: ${findSolutionOne(data)}`);
+console.log(`Solution 2: ${findSolutionTwo(data)}`);
