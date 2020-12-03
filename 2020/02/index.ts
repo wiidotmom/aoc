@@ -6,12 +6,12 @@ const INPUT_FILE = fs.readFileSync(path.join(__dirname, 'input.txt')).toString()
 const findSolutionOne = (input: string[]): number => {
     let valids = 0;
     input.forEach(line => {
-        let sides = line.split(':');
-        let password = sides[1].trim();
-        let letter = sides[0].split(' ')[1];
-        let minimum = Number(sides[0].split(' ')[0].split('-')[0]);
-        let maximum = Number(sides[0].split(' ')[0].split('-')[1]);
-        let count = password.split(letter).length - 1;
+        const sides = line.split(':');
+        const password = sides[1].trim();
+        const letter = sides[0].split(' ')[1];
+        const minimum = Number(sides[0].split(' ')[0].split('-')[0]);
+        const maximum = Number(sides[0].split(' ')[0].split('-')[1]);
+        const count = password.split(letter).length - 1;
         if((count >= minimum) && (count <= maximum)) valids++;
     });
     return valids;
@@ -20,11 +20,11 @@ const findSolutionOne = (input: string[]): number => {
 const findSolutionTwo = (input: string[]): number => {
     let valids = 0;
     input.forEach(line => {
-        let sides = line.split(':');
-        let password = sides[1].trim();
-        let letter = sides[0].split(' ')[1];
-        let firstPos = Number(sides[0].split(' ')[0].split('-')[0]);
-        let secondPos = Number(sides[0].split(' ')[0].split('-')[1]);
+        const sides = line.split(':');
+        const password = sides[1].trim();
+        const letter = sides[0].split(' ')[1];
+        const firstPos = Number(sides[0].split(' ')[0].split('-')[0]);
+        const secondPos = Number(sides[0].split(' ')[0].split('-')[1]);
         if((password.charAt(firstPos - 1) == letter && password.charAt(secondPos - 1) != letter) || (password.charAt(firstPos - 1) != letter && password.charAt(secondPos - 1) == letter)) valids++;
     });
     return valids;
