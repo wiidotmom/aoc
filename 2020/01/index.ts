@@ -1,6 +1,8 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+const INPUT_FILE = fs.readFileSync(path.join(__dirname, 'input.txt')).toString();
+
 const findSolutionOne = (input: number[]): number => {
     let solution = 0;
     input.forEach((entry, index) => {
@@ -23,6 +25,6 @@ const findSolutionTwo = (input: number[]): number => {
     return solution;
 }
 
-let data = fs.readFileSync(path.join(__dirname, 'input.txt')).toString().split('\n').map(x => Number(x));
+let data = INPUT_FILE.split('\n').map(x => Number(x));
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);
