@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { format } from 'path';
 
 const INPUT_FILE = fs.readFileSync(path.join(__dirname, 'input.txt')).toString();
 
