@@ -1,4 +1,5 @@
 # AoC
-All of my Advent of Code solutions (currently just 2020)
+
+All of my Advent of Code solutions
 
 Language of choice: TypeScript
