@@ -2,4 +2,10 @@
 
 All of my Advent of Code solutions
 
-Language of choice: TypeScript
+### Directory Structure
+
+```
+[language]/
+├─ [year]/
+│  ├─ [day]/
+```
