@@ -33,8 +33,7 @@ const findSolutionOne = (input: string[]): number => {
 }
 
 const findSolutionTwo = (input: string[]): number => {
-	let oxGenData = [...input];
-
+	
 	function getOxygenGeneratorRating(): number {
 		let filteredData = [...input];
 
