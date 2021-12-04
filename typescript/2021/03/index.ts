@@ -30,10 +30,9 @@ const findSolutionOne = (input: string[]): number => {
 	const epsilonRate = parseInt(minBinary, 2);
 
 	return gammaRate * epsilonRate;
-}
+};
 
 const findSolutionTwo = (input: string[]): number => {
-	
 	function getOxygenGeneratorRating(): number {
 		let filteredData = [...input];
 
@@ -81,7 +80,7 @@ const findSolutionTwo = (input: string[]): number => {
 	}
 
 	return getOxygenGeneratorRating() * getCO2ScrubberRating();
-}
+};
 
 let data = INPUT_FILE.split('\n');
 console.log(`Solution 1: ${findSolutionOne(data)}`);
