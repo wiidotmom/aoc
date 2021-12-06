@@ -29,8 +29,6 @@ class Sea {
 			this.fish[6] += newFish;
 			this.fish[8] = newFish;
 
-			console.log(newFish);
-
 			this.days--;
 		}
 
