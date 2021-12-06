@@ -1,3 +1,5 @@
+// TODO: refactor with spatial data utils
+
 import fs from 'fs';
 import path from 'path';
 import { bold } from 'colorette';
