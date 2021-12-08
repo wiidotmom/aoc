@@ -1,9 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 const findSolutionOne = (input: string[]): number => {
 	let minBinary = '';
@@ -82,6 +77,6 @@ const findSolutionTwo = (input: string[]): number => {
 	return getOxygenGeneratorRating() * getCO2ScrubberRating();
 };
 
-let data = INPUT_FILE.split('\n');
+let data = input.split('\n');
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);

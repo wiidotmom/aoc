@@ -1,4 +1,4 @@
-forward 7
+export default `forward 7
 forward 9
 forward 9
 down 3
@@ -997,4 +997,4 @@ forward 9
 forward 2
 forward 1
 forward 7
-forward 5
+forward 5`;

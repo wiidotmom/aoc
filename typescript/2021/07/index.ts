@@ -1,9 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 const findSolutionOne = (input: number[]): number => {
 	const min = Math.min(...input),
@@ -35,6 +30,6 @@ const findSolutionTwo = (input: number[]): number => {
 	return cheapest!;
 };
 
-const data = INPUT_FILE.split(',').map(x => parseInt(x));
+const data = input.split(',').map(x => parseInt(x));
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);

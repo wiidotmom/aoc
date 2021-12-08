@@ -1,4 +1,4 @@
-beacf afbd bcead cgefa ecdbga efb gbfdeac ecgfbd acbdfe fb | bf efb bgecdfa egcfa
+export default `beacf afbd bcead cgefa ecdbga efb gbfdeac ecgfbd acbdfe fb | bf efb bgecdfa egcfa
 cbdgef cdfageb cegbd fecba edgf dcfbe dbcafg df fcd dbegca | bgcdef dgbec bfeac fdeg
 bgdcfa dgabf bfdec baefd abeg eda afcdge ea bfceadg dfegba | efbad fbdea dae fagbd
 cfdabe fcgbe gcdeb ecdfgb bdc cdgf cd cfageb bgdae daebfcg | decbaf cdfg deabg cd
@@ -197,4 +197,4 @@ cbedag edgca bfcagde gfbae gfdea df adfc dafceg fedbcg gdf | adecg gbafe acdbfeg
 ebfc ef gecfad gfdcb egbad gfabcd ecgdafb feg bfgdce dbefg | aegdb bfged ef bafdgc
 ce cefd cafdg cdgefa geacbd eca gcbfad gebfa afecg bfedcga | ecgfa cea defc ce
 ceb edbgafc fabec cb dfagec fgbea daefcb efdca cebgda bfdc | bec eadfgbc degabc adgfce
-cgf aefbdgc gf bagf gedacf ecgfb cdfeb acgbe ebcfga cedbga | gf fbgcade cbegfda acbdfeg
+cgf aefbdgc gf bagf gedacf ecgfb cdfeb acgbe ebcfga cedbga | gf fbgcade cbegfda acbdfeg`;

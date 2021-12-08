@@ -1,12 +1,6 @@
 // TODO: refactor with spatial data utils
 
-import fs from 'fs';
-import path from 'path';
-import { bold } from 'colorette';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 type BoardNumber = number | true;
 
@@ -108,6 +102,6 @@ const findSolutionTwo = (input: string[]): number | undefined => {
 	}
 };
 
-const data = INPUT_FILE.split('\n\n').map(line => line.trim());
+const data = input.split('\n\n').map(line => line.trim());
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);

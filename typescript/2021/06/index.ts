@@ -1,9 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 class Sea {
 	fish: number[];
@@ -54,6 +49,6 @@ const findSolutionTwo = (input: string[]): number => {
 	return sea.runSimulation();
 };
 
-const data = INPUT_FILE.split(',');
+const data = input.split(',');
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);

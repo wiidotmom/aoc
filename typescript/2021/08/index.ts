@@ -1,11 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-
 import { getPermutationsOfArray } from 'utils';
 
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 const findSolutionOne = (input: string[]): number => {
 	let easyDigits: number = 0;
@@ -65,6 +60,10 @@ const findSolutionTwo = (input: string[]): number => {
 	return correctOutputs.map(x => parseInt(x.join(''))).reduce((a, b) => a + b);
 };
 
-const data = INPUT_FILE.split('\n');
+const data = input.split('\n');
+console.time('Solution 1 Time');
 console.log(`Solution 1: ${findSolutionOne(data)}`);
+console.timeEnd('Solution 1 Time');
+console.time('Solution 2 Time');
 console.log(`Solution 2: ${findSolutionTwo(data)}`);
+console.timeEnd('Solution 2 Time');

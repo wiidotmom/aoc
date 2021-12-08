@@ -1,11 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-
 import { Vec2d, Grid } from 'utils';
 
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 function* getPointsOnLine(start: Vec2d, end: Vec2d) {
 	/** For diagonals, find the change in X & Y required to iterate */
@@ -77,6 +72,6 @@ const findSolutionTwo = (input: string[]): number => {
 	return grid.points.filter(point => point.value >= 2).length;
 };
 
-const data = INPUT_FILE.split('\n');
+const data = input.split('\n');
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);

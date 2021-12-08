@@ -1,9 +1,4 @@
-import fs from 'fs';
-import path from 'path';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+import input from './input';
 
 const findSolutionOne = (input: number[]): number => {
 	let inc: number = 0;
@@ -37,6 +32,6 @@ const findSolutionTwo = (input: number[]): number => {
 	return inc;
 };
 
-let data = INPUT_FILE.split('\n').map(x => Number(x));
+let data = input.split('\n').map(x => Number(x));
 console.log(`Solution 1: ${findSolutionOne(data)}`);
 console.log(`Solution 2: ${findSolutionTwo(data)}`);
