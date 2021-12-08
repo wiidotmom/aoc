@@ -1,10 +1,3 @@
-# AoC
+# 🎄 aoc
 
-All of my Advent of Code solutions
-
-### Directory Structure
-
-```
-[year]/
-├─ [day]/
-```
+Advent of Code solutions - language of choice is TypeScript.
