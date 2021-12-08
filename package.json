@@ -10,8 +10,8 @@
 		"type": "git",
 		"url": "git+https://github.com/iGalaxyYT/aoc.git"
 	},
-	"author": "",
-	"license": "ISC",
+	"author": "William Hayr <contact@igalaxy.dev>",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/iGalaxyYT/aoc/issues"
 	},
