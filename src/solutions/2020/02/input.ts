@@ -1,4 +1,4 @@
-1-4 m: mrfmmbjxr
+export default `1-4 m: mrfmmbjxr
 5-16 b: bbbbhbbbbpbxbbbcb
 7-8 x: qxrxmxccxxx
 9-11 k: kkkkkkktmkhk
@@ -997,4 +997,4 @@
 5-8 w: cwwwzwwb
 7-8 r: rrrrxrrr
 8-9 f: sgdcqfhfcfsflb
-3-7 g: gdgtnfggq
+3-7 g: gdgtnfggq`;

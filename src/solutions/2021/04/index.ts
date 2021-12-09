@@ -2,6 +2,8 @@
 
 import input from './input';
 
+export const parseInput = () => input.split('\n\n').map(line => line.trim());
+
 type BoardNumber = number | true;
 
 class Board {
@@ -70,7 +72,7 @@ class Board {
 	}
 }
 
-const findSolutionOne = (input: string[]): number | undefined => {
+export const findSolutionOne = (input: string[]): number => {
 	const numbers = input[0].split(',').map(num => parseInt(num));
 	const boards = input.slice(1).map(board => new Board(board));
 
@@ -82,9 +84,11 @@ const findSolutionOne = (input: string[]): number | undefined => {
 		const winningBoard = boards.find(board => board.isWinningBoard());
 		if (winningBoard) return winningBoard.getUnmarkedSum() * num;
 	}
+
+	return 0;
 };
 
-const findSolutionTwo = (input: string[]): number | undefined => {
+export const findSolutionTwo = (input: string[]): number => {
 	const numbers = input[0].split(',').map(num => parseInt(num));
 	/** Make boards reassignable so they can be filtered */
 	let boards = input.slice(1).map(board => new Board(board));
@@ -100,8 +104,6 @@ const findSolutionTwo = (input: string[]): number | undefined => {
 
 		boards = boards.filter(board => !board.isWinningBoard());
 	}
-};
 
-const data = input.split('\n\n').map(line => line.trim());
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);
+	return 0;
+};

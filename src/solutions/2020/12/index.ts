@@ -1,18 +1,6 @@
-import fs from 'fs';
-import path from 'path';
+import input from './input';
 
 import { Vec2d } from 'utils';
-
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
-
-const input: InstructionPair[] = INPUT_FILE.split('\n').map(x => {
-	return {
-		instruction: x[0] as InstructionType,
-		value: parseInt(x.substr(1, x.length - 1)),
-	};
-});
 
 enum InstructionType {
 	NORTH = 'N',
@@ -29,7 +17,16 @@ interface InstructionPair {
 	value: number;
 }
 
-const findSolutionOne = (instructions: InstructionPair[]): number => {
+export const parseInput = () => input.split('\n');
+
+export const findSolutionOne = (input: string[]): number => {
+	const instructions = input.map(x => {
+		return {
+			instruction: x[0] as InstructionType,
+			value: parseInt(x.substr(1, x.length - 1)),
+		};
+	});
+
 	let x = 0,
 		y = 0;
 	let rotation = 0;
@@ -89,7 +86,14 @@ const findSolutionOne = (instructions: InstructionPair[]): number => {
 	return Math.abs(x) + Math.abs(y);
 };
 
-const findSolutionTwo = (instructions: InstructionPair[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
+	const instructions = input.map(x => {
+		return {
+			instruction: x[0] as InstructionType,
+			value: parseInt(x.substr(1, x.length - 1)),
+		};
+	});
+
 	let ship: Vec2d = { x: 0, y: 0 };
 	let waypoint: Vec2d = { x: 10, y: 1 };
 
@@ -145,6 +149,3 @@ const findSolutionTwo = (instructions: InstructionPair[]): number => {
 
 	return Math.abs(ship.x) + Math.abs(ship.y);
 };
-
-console.log(`Solution 1: ${findSolutionOne(input)}`);
-console.log(`Solution 2: ${findSolutionTwo(input)}`);

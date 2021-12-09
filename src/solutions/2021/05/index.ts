@@ -1,6 +1,8 @@
+import input from './input';
+
 import { Vec2d, Grid } from 'utils';
 
-import input from './input';
+export const parseInput = () => input.split('\n');
 
 function* getPointsOnLine(start: Vec2d, end: Vec2d) {
 	/** For diagonals, find the change in X & Y required to iterate */
@@ -18,7 +20,7 @@ function* getPointsOnLine(start: Vec2d, end: Vec2d) {
 	}
 }
 
-const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (input: string[]): number => {
 	let lines: Vec2d[][] = [];
 
 	input.forEach(line => {
@@ -45,7 +47,7 @@ const findSolutionOne = (input: string[]): number => {
 	return grid.points.filter(point => point.value >= 2).length;
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	let lines: Vec2d[][] = [];
 
 	input.forEach(line => {
@@ -71,7 +73,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return grid.points.filter(point => point.value >= 2).length;
 };
-
-const data = input.split('\n');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

@@ -5,78 +5,91 @@ import styled from 'styled-components';
 
 import { GitHub, ExternalLink } from 'react-feather';
 
-import { formatDay, getCalendar } from 'lib/calendar';
+import { formatDay } from 'lib/calendar';
 
 export const DayContext = createContext({ year: 2021, day: 1 });
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
-	const calendar = getCalendar();
-
 	const [{ year, day }, setDay] = useState({ year: 2021, day: 1 });
 
 	return (
 		<>
-			<Navbar>
-				<h1>
-					🎄 aoc<SubHeader>.igalaxy.dev</SubHeader>
-				</h1>
-				<SelectGroup>
-					<select
-						value={year}
-						onChange={e => setDay({ year: parseInt(e.target.value), day })}
-					>
-						{[2021, 2020].map(x => (
-							<option value={x}>{x}</option>
-						))}
-					</select>
-					<select
-						value={day}
-						onChange={e => setDay({ year, day: parseInt(e.target.value) })}
-					>
-						{[...Array(25).keys()].map(x => (
-							<option value={x + 1}>{formatDay(x + 1)}</option>
-						))}
-					</select>
-				</SelectGroup>
-				<LinkGroup>
-					<Link href={`https://adventofcode.com/${year}/day/${day}`} passHref>
-						<NavLink target="_blank">
-							<ExternalLink /> View Problem
-						</NavLink>
-					</Link>
-					<Link
-						href={`https://github.com/iGalaxyYT/aoc/blob/main/src/solutions/${year}/${formatDay(
-							day
-						)}/index.ts`}
-						passHref
-					>
-						<NavLink target="_blank">
-							<GitHub /> Source Code
-						</NavLink>
-					</Link>
-				</LinkGroup>
-			</Navbar>
-			<DayContext.Provider value={{ year, day }}>
-				{children}
-			</DayContext.Provider>
+			<LayoutContainer>
+				<LayoutContent>
+					<Navbar>
+						<h1>
+							🎄 aoc
+							<SubHeader>.igalaxy.dev</SubHeader>
+						</h1>
+						<SelectGroup>
+							<select
+								value={year}
+								onChange={e => setDay({ year: parseInt(e.target.value), day })}
+							>
+								{[2020, 2021].map(x => (
+									<option value={x}>{x}</option>
+								))}
+							</select>
+							<select
+								value={day}
+								onChange={e => setDay({ year, day: parseInt(e.target.value) })}
+							>
+								{[...Array(25).keys()]
+									.map(x => x + 1)
+									.map(x => (
+										<option value={x}>{formatDay(x)}</option>
+									))}
+							</select>
+						</SelectGroup>
+						<LinkGroup>
+							<Link href={`https://github.com/iGalaxyYT/aoc`} passHref>
+								<NavLink target="_blank">
+									<GitHub /> Source Code
+								</NavLink>
+							</Link>
+						</LinkGroup>
+					</Navbar>
+					<DayContext.Provider value={{ year, day }}>
+						{children}
+					</DayContext.Provider>
+				</LayoutContent>
+			</LayoutContainer>
 		</>
 	);
 }
+
+const LayoutContainer = styled.div`
+	height: 100vh;
+	width: 100vw;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+`;
+
+const LayoutContent = styled.div`
+	height: 100vh;
+	width: 85vw;
+`;
 
 const Navbar = styled.div`
 	display: flex;
 	flex-direction: row;
 
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
 
 	height: 100px;
-	width: 100vw;
 
 	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 		Liberation Mono, Courier New, monospace;
 
 	user-select: none;
+
+	@media only screen and (max-width: 1100px) {
+		flex-direction: column;
+		height: 200px;
+	}
 `;
 
 const SubHeader = styled.span`

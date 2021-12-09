@@ -1,5 +1,7 @@
 import input from './input';
 
+export const parseInput = () => input.split(',');
+
 class Sea {
 	fish: number[];
 	days: number;
@@ -31,7 +33,7 @@ class Sea {
 	}
 }
 
-const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (input: string[]): number => {
 	const sea = new Sea(
 		input.map(x => parseInt(x)),
 		80
@@ -40,7 +42,7 @@ const findSolutionOne = (input: string[]): number => {
 	return sea.runSimulation();
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	const sea = new Sea(
 		input.map(x => parseInt(x)),
 		256
@@ -48,7 +50,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return sea.runSimulation();
 };
-
-const data = input.split(',');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

@@ -1,30 +1,30 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import input from './input';
 
-const INPUT_FILE = fs.readFileSync(path.join(__dirname, 'input.txt')).toString();
+export const parseInput = () => input.split('\n');
 
-const findSolutionOne = (input: number[]): number => {
-    let solution = 0;
-    input.forEach((entry, index) => {
-        input.forEach((subEntry, subIndex) => {
-            if(entry + subEntry == 2020) solution = entry * subEntry;
-        });
-    });
-    return solution;
-}
+export const findSolutionOne = (input: string[]): number => {
+	const nums = input.map(x => parseInt(x));
 
-const findSolutionTwo = (input: number[]): number => {
-    let solution = 0;
-    input.forEach((entry, index) => {
-        input.forEach((subEntry, subIndex) => {
-            input.forEach((subSubEntry, subSubIndex) => {
-                if(entry + subEntry + subSubEntry == 2020) solution = entry * subEntry * subSubEntry;
-            });
-        });
-    });
-    return solution;
-}
+	let solution = 0;
+	nums.forEach((entry, index) => {
+		nums.forEach((subEntry, subIndex) => {
+			if (entry + subEntry == 2020) solution = entry * subEntry;
+		});
+	});
+	return solution;
+};
 
-let data = INPUT_FILE.split('\n').map(x => Number(x));
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);
+export const findSolutionTwo = (input: string[]): number => {
+	const nums = input.map(x => parseInt(x));
+
+	let solution = 0;
+	nums.forEach((entry, index) => {
+		nums.forEach((subEntry, subIndex) => {
+			nums.forEach((subSubEntry, subSubIndex) => {
+				if (entry + subEntry + subSubEntry == 2020)
+					solution = entry * subEntry * subSubEntry;
+			});
+		});
+	});
+	return solution;
+};

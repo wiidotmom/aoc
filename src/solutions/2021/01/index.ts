@@ -1,6 +1,8 @@
 import input from './input';
 
-const findSolutionOne = (input: number[]): number => {
+export const parseInput = () => input.split('\n').map(x => Number(x));
+
+export const findSolutionOne = (input: number[]): number => {
 	let inc: number = 0;
 	let previous: number;
 
@@ -12,7 +14,7 @@ const findSolutionOne = (input: number[]): number => {
 	return inc;
 };
 
-const findSolutionTwo = (input: number[]): number => {
+export const findSolutionTwo = (input: number[]): number => {
 	let inc: number = 0;
 	let window: number[] = input.slice(0, 2);
 	let previousSum: number;
@@ -31,7 +33,3 @@ const findSolutionTwo = (input: number[]): number => {
 
 	return inc;
 };
-
-let data = input.split('\n').map(x => Number(x));
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

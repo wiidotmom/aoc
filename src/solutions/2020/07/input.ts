@@ -1,4 +1,4 @@
-posh teal bags contain 2 faded coral bags, 3 striped crimson bags, 1 faded red bag.
+export default `posh teal bags contain 2 faded coral bags, 3 striped crimson bags, 1 faded red bag.
 mirrored chartreuse bags contain 3 clear beige bags, 3 shiny silver bags, 3 bright green bags.
 dotted red bags contain 4 light chartreuse bags.
 faded chartreuse bags contain 1 striped black bag, 1 dim coral bag, 5 mirrored maroon bags.
@@ -591,4 +591,4 @@ bright beige bags contain 5 dim teal bags, 3 posh indigo bags.
 dim crimson bags contain 4 wavy lime bags, 4 dim orange bags, 1 faded green bag.
 dim red bags contain 4 drab plum bags, 4 shiny gold bags.
 wavy tomato bags contain 4 plaid bronze bags, 1 striped black bag.
-dark plum bags contain 5 shiny olive bags, 1 drab violet bag, 2 striped black bags, 1 faded coral bag.
+dark plum bags contain 5 shiny olive bags, 1 drab violet bag, 2 striped black bags, 1 faded coral bag.`;
