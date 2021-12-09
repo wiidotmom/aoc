@@ -1,14 +1,18 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, createContext, useState } from 'react';
 import Link from 'next/link';
 
 import styled from 'styled-components';
 
 import { GitHub, ExternalLink } from 'react-feather';
 
-import { getCalendar } from 'lib/calendar';
+import { formatDay, getCalendar } from 'lib/calendar';
+
+export const DayContext = createContext({ year: 2021, day: 1 });
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
 	const calendar = getCalendar();
+
+	const [{ year, day }, setDay] = useState({ year: 2021, day: 1 });
 
 	return (
 		<>
@@ -17,27 +21,44 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 					🎄 aoc<SubHeader>.igalaxy.dev</SubHeader>
 				</h1>
 				<SelectGroup>
-					<select>
-						<option value="2021">2021</option>
+					<select
+						value={year}
+						onChange={e => setDay({ year: parseInt(e.target.value), day })}
+					>
+						{[2021, 2020].map(x => (
+							<option value={x}>{x}</option>
+						))}
 					</select>
-					<select>
-						<option value="01">01</option>
+					<select
+						value={day}
+						onChange={e => setDay({ year, day: parseInt(e.target.value) })}
+					>
+						{[...Array(25).keys()].map(x => (
+							<option value={x + 1}>{formatDay(x + 1)}</option>
+						))}
 					</select>
 				</SelectGroup>
 				<LinkGroup>
-					<Link href="https://adventofcode.com/2021/day/1" passHref>
+					<Link href={`https://adventofcode.com/${year}/day/${day}`} passHref>
 						<NavLink target="_blank">
 							<ExternalLink /> View Problem
 						</NavLink>
 					</Link>
-					<Link href="https://github.com/iGalaxyYT/aoc" passHref>
+					<Link
+						href={`https://github.com/iGalaxyYT/aoc/blob/main/src/solutions/${year}/${formatDay(
+							day
+						)}/index.ts`}
+						passHref
+					>
 						<NavLink target="_blank">
 							<GitHub /> Source Code
 						</NavLink>
 					</Link>
 				</LinkGroup>
 			</Navbar>
-			{children}
+			<DayContext.Provider value={{ year, day }}>
+				{children}
+			</DayContext.Provider>
 		</>
 	);
 }
@@ -59,7 +80,7 @@ const Navbar = styled.div`
 `;
 
 const SubHeader = styled.span`
-	color: rgba(255, 255, 255, 0.1);
+	color: rgba(255, 255, 255, 0.2);
 `;
 
 const NavLink = styled.a`
