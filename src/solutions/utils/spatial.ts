@@ -20,6 +20,20 @@ export function create2dArrayWithBounds<T>(
 		.map(() => Array(boundX).fill(defaultValue));
 }
 
+export function createIntegerGridFromString(str: string): Grid<number> {
+	const grid = new Grid<number>(0);
+
+	let array = str.split('\n').map(x => x.split('').map(y => parseInt(y)));
+
+	for (let y = 0; y < array.length; y++) {
+		for (let x = 0; x < array[0].length; x++) {
+			grid.set(x, y, array[y][x]);
+		}
+	}
+
+	return grid;
+}
+
 /**
  * Used for 2D spatial data manipulation
  */
