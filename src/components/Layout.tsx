@@ -103,7 +103,7 @@ const Navbar = styled.div`
 `;
 
 const SubHeader = styled.span`
-	color: rgba(255, 255, 255, 0.2);
+	color: rgba(255, 255, 255, 0.25);
 `;
 
 const NavLink = styled.a`

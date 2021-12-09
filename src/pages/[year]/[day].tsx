@@ -235,6 +235,8 @@ const InputButton = styled.span`
 	justify-content: center;
 	align-items: center;
 
+	user-select: none;
+
 	svg {
 		margin-right: 10px;
 	}
@@ -259,6 +261,8 @@ const CodeLink = styled.a`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+
+	user-select: none;
 
 	svg {
 		margin-right: 10px;
