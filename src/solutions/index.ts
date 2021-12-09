@@ -8,16 +8,12 @@ export interface Solution {
 }
 
 function map(x: any) {
-	return [
-		x.findSolutionOne ? x.findSolutionOne(x.parseInput()) : 0,
-		x.findSolutionTwo ? x.findSolutionTwo(x.parseInput()) : 0,
-		x.parseInput(),
-	];
+	return [x.findSolutionOne, x.findSolutionTwo, x.parseInput];
 }
 
-const years: { [key: number]: number[][] } = {
-	2020: y2020.map(map),
-	2021: y2021.map(map),
+const years: { [key: number]: any[][] } = {
+	2020: y2020.map(x => map(x)),
+	2021: y2021.map(x => map(x)),
 };
 
 export default years;

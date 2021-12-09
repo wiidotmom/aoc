@@ -1,9 +1,10 @@
 import { PropsWithChildren, createContext, useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
 
-import { GitHub, ExternalLink } from 'react-feather';
+import { GitHub } from 'react-feather';
 
 import { formatDay } from 'lib/calendar';
 
@@ -11,6 +12,7 @@ export const DayContext = createContext({ year: 2021, day: 1 });
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
 	const [{ year, day }, setDay] = useState({ year: 2021, day: 1 });
+	const router = useRouter();
 
 	return (
 		<>
@@ -24,7 +26,10 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 						<SelectGroup>
 							<select
 								value={year}
-								onChange={e => setDay({ year: parseInt(e.target.value), day })}
+								onChange={e => {
+									setDay({ year: parseInt(e.target.value), day });
+									router.replace(`/${e.target.value}/${formatDay(day)}`);
+								}}
 							>
 								{[2020, 2021].map(x => (
 									<option value={x}>{x}</option>
@@ -32,7 +37,12 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 							</select>
 							<select
 								value={day}
-								onChange={e => setDay({ year, day: parseInt(e.target.value) })}
+								onChange={e => {
+									setDay({ year, day: parseInt(e.target.value) });
+									router.replace(
+										`/${year}/${formatDay(parseInt(e.target.value))}`
+									);
+								}}
 							>
 								{[...Array(25).keys()]
 									.map(x => x + 1)

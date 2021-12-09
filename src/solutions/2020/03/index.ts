@@ -37,7 +37,7 @@ const getTreesFromSlope = (
 	while (pos.y < input.length) {
 		if (input[pos.y][pos.x] == '#') trees++;
 
-		pos.x = (pos.x + X_SLOPE) % (input[0].length - 1);
+		pos.x = (pos.x + X_SLOPE) % input[0].length;
 		pos.y = pos.y + Y_SLOPE;
 	}
 
