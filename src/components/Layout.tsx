@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styled from 'styled-components';
 
-import { GitHub } from 'react-feather';
+import { GitHub, ExternalLink } from 'react-feather';
 
 import { getCalendar } from 'lib/calendar';
 
@@ -13,7 +13,9 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 	return (
 		<>
 			<Navbar>
-				<h1>🎄 aoc</h1>
+				<h1>
+					🎄 aoc<SubHeader>.igalaxy.dev</SubHeader>
+				</h1>
 				<SelectGroup>
 					<select>
 						<option value="2021">2021</option>
@@ -22,11 +24,18 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 						<option value="01">01</option>
 					</select>
 				</SelectGroup>
-				<Link href="https://github.com/iGalaxyYT/aoc" passHref>
-					<NavLink target="_blank">
-						<GitHub /> Source Code
-					</NavLink>
-				</Link>
+				<LinkGroup>
+					<Link href="https://adventofcode.com/2021/day/1" passHref>
+						<NavLink target="_blank">
+							<ExternalLink /> View Problem
+						</NavLink>
+					</Link>
+					<Link href="https://github.com/iGalaxyYT/aoc" passHref>
+						<NavLink target="_blank">
+							<GitHub /> Source Code
+						</NavLink>
+					</Link>
+				</LinkGroup>
 			</Navbar>
 			{children}
 		</>
@@ -47,6 +56,10 @@ const Navbar = styled.div`
 		Liberation Mono, Courier New, monospace;
 
 	user-select: none;
+`;
+
+const SubHeader = styled.span`
+	color: rgba(255, 255, 255, 0.1);
 `;
 
 const NavLink = styled.a`
@@ -73,11 +86,17 @@ const NavLink = styled.a`
 	}
 `;
 
+const LinkGroup = styled.div`
+	display: flex;
+	flex-direction: row;
+`;
+
 const SelectGroup = styled.div`
 	select {
-		margin: 5px;
+		margin-left: 5px;
+		margin-right: 5px;
 
-		border-radius: 10px;
+		border-radius: 8px;
 
 		padding-left: 1.25rem;
 		padding-right: 1.25rem;
@@ -85,10 +104,11 @@ const SelectGroup = styled.div`
 		padding-bottom: 0.75rem;
 
 		border: 3px solid rgba(255, 255, 255, 0.1);
-		background-color: rgba(0, 0, 0, 0);
+		background-color: #010409;
 		color: white;
 
 		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
 			Liberation Mono, Courier New, monospace;
+		font-size: 1em;
 	}
 `;
