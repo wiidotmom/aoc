@@ -34,7 +34,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 									router.replace(`/${e.target.value}/${formatDay(day)}`);
 								}}
 							>
-								{[2020, 2021].map(x => (
+								{[2021, 2020].map(x => (
 									<option value={x}>{x}</option>
 								))}
 							</select>
