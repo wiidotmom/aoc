@@ -14,9 +14,9 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 	const { year, day } = useContext(DayContext);
 	const { year: routerYear, day: routerDay } = useRouter().query;
 
-	const [showInput, setShowInput] = useState(false);
+	console.log(solutions[2]);
 
-	console.log(solutions);
+	const [showInput, setShowInput] = useState(false);
 
 	return solutions[2] !== '' ? (
 		<PageContainer>
@@ -85,7 +85,9 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 					</Link>
 				</ButtonGroup>
 				{showInput ? (
-					<InputDisplay>{solutions[2].join('\n')}</InputDisplay>
+					<InputDisplay>
+						{solutions[2].join ? solutions[2].join('\n') : solutions[2]}
+					</InputDisplay>
 				) : (
 					<></>
 				)}
@@ -268,7 +270,7 @@ const CodeLink = styled.a`
 `;
 
 const InputDisplay = styled.div`
-	width: 100%;
+	width: calc(100% - 50px);
 
 	white-space: pre-wrap;
 	overflow-x: scroll;

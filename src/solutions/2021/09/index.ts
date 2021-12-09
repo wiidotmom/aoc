@@ -2,7 +2,9 @@ import { createIntegerGridFromString, Grid } from 'utils';
 
 import input from './input';
 
-const findSolutionOne = (input: string): number => {
+export const parseInput = () => input;
+
+export const findSolutionOne = (input: string): number => {
 	const grid = createIntegerGridFromString(input);
 
 	const array = grid.toArray();
@@ -37,7 +39,7 @@ const findSolutionOne = (input: string): number => {
 	return total;
 };
 
-const findSolutionTwo = (input: string): number => {
+export const findSolutionTwo = (input: string): number => {
 	const originalGrid = createIntegerGridFromString(input);
 
 	const flowGrid = new Grid<number[][]>([]);
@@ -65,6 +67,6 @@ const findSolutionTwo = (input: string): number => {
 			});
 		}
 	}
-};
 
-console.log(`Solution 1: ${findSolutionOne(input)}`);
+	return 0;
+};
