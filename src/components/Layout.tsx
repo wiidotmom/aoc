@@ -11,8 +11,11 @@ import { formatDay } from 'lib/calendar';
 export const DayContext = createContext({ year: 2021, day: 1 });
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
-	const [{ year, day }, setDay] = useState({ year: 2021, day: 1 });
 	const router = useRouter();
+	const [{ year, day }, setDay] = useState({
+		year: parseInt(router.query.year as string),
+		day: parseInt(router.query.day as string),
+	});
 
 	return (
 		<>

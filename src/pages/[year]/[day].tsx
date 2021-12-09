@@ -14,8 +14,6 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 	const { year, day } = useContext(DayContext);
 	const { year: routerYear, day: routerDay } = useRouter().query;
 
-	console.log(solutions[2]);
-
 	const [showInput, setShowInput] = useState(false);
 
 	return solutions[2] !== '' ? (
