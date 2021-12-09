@@ -1,4 +1,4 @@
-S2
+export default `S2
 W5
 F20
 E3
@@ -783,4 +783,4 @@ F13
 L90
 N3
 W4
-F100
+F100`;

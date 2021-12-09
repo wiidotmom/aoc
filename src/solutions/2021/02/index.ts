@@ -1,6 +1,8 @@
 import input from './input';
 
-const findSolutionOne = (input: string[]): number => {
+export const parseInput = () => input.split('\n');
+
+export const findSolutionOne = (input: string[]): number => {
 	let pos: number = 0;
 	let depth: number = 0;
 
@@ -20,7 +22,7 @@ const findSolutionOne = (input: string[]): number => {
 	return pos * depth;
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	let aim: number = 0;
 	let pos: number = 0;
 	let depth: number = 0;
@@ -43,7 +45,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return pos * depth;
 };
-
-let data = input.split('\n');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

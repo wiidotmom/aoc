@@ -2,7 +2,9 @@ import { getPermutationsOfArray } from 'utils';
 
 import input from './input';
 
-const findSolutionOne = (input: string[]): number => {
+export const parseInput = () => input.split('\n');
+
+export const findSolutionOne = (input: string[]): number => {
 	let easyDigits: number = 0;
 
 	input.forEach(line => {
@@ -17,7 +19,7 @@ const findSolutionOne = (input: string[]): number => {
 	return easyDigits;
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	const unmapped = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 	const permutations = getPermutationsOfArray<string>(unmapped);
 
@@ -59,11 +61,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return correctOutputs.map(x => parseInt(x.join(''))).reduce((a, b) => a + b);
 };
-
-const data = input.split('\n');
-console.time('Solution 1 Time');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.timeEnd('Solution 1 Time');
-console.time('Solution 2 Time');
-console.log(`Solution 2: ${findSolutionTwo(data)}`);
-console.timeEnd('Solution 2 Time');

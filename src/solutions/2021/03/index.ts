@@ -1,6 +1,8 @@
 import input from './input';
 
-const findSolutionOne = (input: string[]): number => {
+export const parseInput = () => input.split('\n');
+
+export const findSolutionOne = (input: string[]): number => {
 	let minBinary = '';
 	let maxBinary = '';
 
@@ -27,7 +29,7 @@ const findSolutionOne = (input: string[]): number => {
 	return gammaRate * epsilonRate;
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	function getOxygenGeneratorRating(): number {
 		let filteredData = [...input];
 
@@ -76,7 +78,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return getOxygenGeneratorRating() * getCO2ScrubberRating();
 };
-
-let data = input.split('\n');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

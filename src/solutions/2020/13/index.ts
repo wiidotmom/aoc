@@ -1,13 +1,10 @@
-import fs from 'fs';
-import path from 'path';
+import input from './input';
 
 import { lcm } from 'utils';
 
-const INPUT_FILE = fs
-	.readFileSync(path.join(__dirname, 'input.txt'))
-	.toString();
+export const parseInput = () => input.split('\n');
 
-const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (input: string[]): number => {
 	const minimum = parseInt(input[0]);
 	const busIds = input[1]
 		.split(',')
@@ -25,7 +22,7 @@ const findSolutionOne = (input: string[]): number => {
 	return bus! * minutes!;
 };
 
-const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (input: string[]): number => {
 	const busIds = input[1].split(',').map(x => (x === 'x' ? 1 : parseInt(x)));
 
 	let step = busIds[0],
@@ -42,7 +39,3 @@ const findSolutionTwo = (input: string[]): number => {
 
 	return t;
 };
-
-const data = INPUT_FILE.split('\n');
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

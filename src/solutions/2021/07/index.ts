@@ -1,6 +1,8 @@
 import input from './input';
 
-const findSolutionOne = (input: number[]): number => {
+export const parseInput = () => input.split(',').map(x => parseInt(x));
+
+export const findSolutionOne = (input: number[]): number => {
 	const min = Math.min(...input),
 		max = Math.max(...input);
 
@@ -13,7 +15,7 @@ const findSolutionOne = (input: number[]): number => {
 	return cheapest!;
 };
 
-const findSolutionTwo = (input: number[]): number => {
+export const findSolutionTwo = (input: number[]): number => {
 	const min = Math.min(...input),
 		max = Math.max(...input);
 
@@ -29,7 +31,3 @@ const findSolutionTwo = (input: number[]): number => {
 
 	return cheapest!;
 };
-
-const data = input.split(',').map(x => parseInt(x));
-console.log(`Solution 1: ${findSolutionOne(data)}`);
-console.log(`Solution 2: ${findSolutionTwo(data)}`);

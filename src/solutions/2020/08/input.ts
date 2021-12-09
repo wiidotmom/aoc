@@ -1,4 +1,4 @@
-acc +15
+export default `acc +15
 acc +2
 acc -14
 jmp +362
@@ -631,4 +631,4 @@ acc +27
 acc -10
 nop -560
 acc +44
-jmp +1
+jmp +1`;
