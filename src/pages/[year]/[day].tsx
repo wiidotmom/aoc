@@ -23,6 +23,47 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 				<title>
 					aoc - {routerYear}, Day {routerDay}
 				</title>
+				<meta name="title" content={`aoc - ${routerYear}, Day ${routerDay}`} />
+				<meta
+					name="description"
+					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+				/>
+
+				<meta property="og:type" content="website" />
+				<meta
+					property="og:url"
+					content={`https://aoc.igalaxy.dev/${routerYear}/${routerDay}`}
+				/>
+				<meta
+					property="og:title"
+					content={`aoc - ${routerYear}, Day ${routerDay}`}
+				/>
+				<meta
+					property="og:description"
+					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+				/>
+				<meta
+					property="og:image"
+					content={`aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400`}
+				/>
+
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:url"
+					content={`https://aoc.igalaxy.dev/${routerYear}/${routerDay}`}
+				/>
+				<meta
+					property="twitter:title"
+					content={`aoc - ${routerYear}, Day ${routerDay}`}
+				/>
+				<meta
+					property="twitter:description"
+					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+				/>
+				<meta
+					property="twitter:image"
+					content={`aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400`}
+				/>
 			</Head>
 			<PageContent>
 				<h2>
