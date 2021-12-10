@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { useContext, useState } from 'react';
 import Link from 'next/link';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
@@ -18,6 +19,11 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 
 	return solutions[2] !== '' ? (
 		<PageContainer>
+			<Head>
+				<title>
+					aoc - {routerYear}, Day {routerDay}
+				</title>
+			</Head>
 			<PageContent>
 				<h2>
 					{routerYear}, Day {formatDay(parseInt(routerDay as string))}
@@ -93,6 +99,11 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 		</PageContainer>
 	) : (
 		<PageContainer>
+			<Head>
+				<title>
+					aoc - {routerYear}, Day {routerDay}
+				</title>
+			</Head>
 			<PageContent>
 				<h2>
 					{year}, Day {formatDay(day)}
