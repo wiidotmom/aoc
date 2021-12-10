@@ -44,7 +44,7 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 				/>
 				<meta
 					property="og:image"
-					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400`}
+					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400&images=https%3A%2F%2Fcdn.igalaxy.dev&images=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fremojansen%2Flogo.ts%40master%2Fts.svg`}
 				/>
 
 				<meta property="twitter:card" content="summary_large_image" />
@@ -62,7 +62,7 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 				/>
 				<meta
 					property="twitter:image"
-					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400`}
+					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=200px&widths=400&heights=400&images=https%3A%2F%2Fcdn.igalaxy.dev&images=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fremojansen%2Flogo.ts%40master%2Fts.svg`}
 				/>
 			</Head>
 			<PageContent>
