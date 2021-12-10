@@ -9,6 +9,7 @@ import * as day06 from './06';
 import * as day07 from './07';
 import * as day08 from './08';
 import * as day09 from './09';
+import * as day10 from './10';
 
 const solutions: Solution[] = [
 	day01,
@@ -20,6 +21,7 @@ const solutions: Solution[] = [
 	day07,
 	day08,
 	day09,
+	day10,
 ];
 
 export default solutions;
