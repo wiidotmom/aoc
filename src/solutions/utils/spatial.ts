@@ -100,4 +100,10 @@ export class Grid<T> {
 
 		return array;
 	}
+
+	public clone() {
+		const clone = new Grid(this.defaultValue);
+		clone.grid = new Map(this.grid);
+		return clone;
+	}
 }

@@ -35,7 +35,9 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								}}
 							>
 								{[2021, 2020].map(x => (
-									<option value={x}>{x}</option>
+									<option key={`year${x}`} value={x}>
+										{x}
+									</option>
 								))}
 							</select>
 							<select
@@ -50,7 +52,9 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								{[...Array(25).keys()]
 									.map(x => x + 1)
 									.map(x => (
-										<option value={x}>{formatDay(x)}</option>
+										<option key={`day${x}`} value={x}>
+											{formatDay(x)}
+										</option>
 									))}
 							</select>
 						</SelectGroup>
