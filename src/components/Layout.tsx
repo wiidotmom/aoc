@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 import { GitHub } from 'react-feather';
 
-import { formatDay } from 'lib/calendar';
+import { formatDay, useYears } from 'lib/calendar';
 
 export const DayContext = createContext({ year: 2021, day: 1 });
 
@@ -16,6 +16,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 		year: parseInt(router.query.year as string),
 		day: parseInt(router.query.day as string),
 	});
+	const { data: years } = useYears();
 
 	return (
 		<>
@@ -36,7 +37,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 									);
 								}}
 							>
-								{[2021, 2020].map(x => (
+								{[2022, 2021, 2020].map(x => (
 									<option key={`year${x}`} value={x}>
 										{x}
 									</option>
@@ -54,7 +55,13 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								{[...Array(25).keys()]
 									.map(x => x + 1)
 									.map(x => (
-										<option key={`day${x}`} value={x}>
+										<option
+											key={`day${x}`}
+											value={x}
+											disabled={
+												!(years && years[year] && years[year][x] != null)
+											}
+										>
 											{formatDay(x)}
 										</option>
 									))}
