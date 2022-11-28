@@ -59,7 +59,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 											key={`day${x}`}
 											value={x}
 											disabled={
-												!(years && years[year] && years[year][x] != null)
+												!(years && years[year] && years[year][x - 1] != null)
 											}
 										>
 											{formatDay(x)}
