@@ -9,11 +9,7 @@ function App({ Component, pageProps }: AppProps) {
 	return (
 		<Layout>
 			<Head>
-				<link
-					rel="icon"
-					href="/arbitrary/path/assets/favicon.ico"
-					type="image/x-icon"
-				/>
+				<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 			</Head>
 			<Component {...pageProps} />
 		</Layout>

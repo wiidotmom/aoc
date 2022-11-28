@@ -74,7 +74,7 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 					<SolutionGroup>
 						<h3>Part One</h3>
 						<SolutionDescription>
-							The solution is <SolutionText>{solutions[0]}</SolutionText>
+							My solution is <SolutionText>{solutions[0]}</SolutionText>
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (
@@ -89,7 +89,7 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 					<SolutionGroup>
 						<h3>Part Two</h3>
 						<SolutionDescription>
-							The solution is <SolutionText>{solutions[1]}</SolutionText>
+							My solution is <SolutionText>{solutions[1]}</SolutionText>
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (

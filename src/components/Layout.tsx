@@ -31,7 +31,9 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								value={year}
 								onChange={e => {
 									setDay({ year: parseInt(e.target.value), day });
-									router.replace(`/${e.target.value}/${formatDay(day)}`);
+									router.replace(
+										`/solutions/${e.target.value}/${formatDay(day)}`
+									);
 								}}
 							>
 								{[2021, 2020].map(x => (
@@ -45,7 +47,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								onChange={e => {
 									setDay({ year, day: parseInt(e.target.value) });
 									router.replace(
-										`/${year}/${formatDay(parseInt(e.target.value))}`
+										`/solutions/${year}/${formatDay(parseInt(e.target.value))}`
 									);
 								}}
 							>
