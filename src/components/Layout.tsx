@@ -38,7 +38,11 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								}}
 							>
 								{[2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015].map(x => (
-									<option key={`year${x}`} value={x}>
+									<option
+										key={`year${x}`}
+										value={x}
+										disabled={!(years && years[x][day - 1] != null)}
+									>
 										{x}
 									</option>
 								))}
@@ -58,9 +62,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 										<option
 											key={`day${x}`}
 											value={x}
-											disabled={
-												!(years && years[year] && years[year][x - 1] != null)
-											}
+											disabled={!(years && years[year][x - 1] != null)}
 										>
 											{formatDay(x)}
 										</option>
