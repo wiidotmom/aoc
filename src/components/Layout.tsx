@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { GitHub } from 'react-feather';
 
 import { formatDay, useYears } from 'lib/calendar';
+import { sum } from 'utils';
 
 export const DayContext = createContext({ year: 2021, day: 1 });
 
@@ -17,6 +18,20 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 		day: parseInt(router.query.day as string),
 	});
 	const { data: years } = useYears();
+
+	let stars: { [key: number]: number };
+	if (years) {
+		stars = {
+			2015: sum(...years[2015].map(x => x.length - 1)),
+			2016: sum(...years[2016].map(x => x.length - 1)),
+			2017: sum(...years[2017].map(x => x.length - 1)),
+			2018: sum(...years[2018].map(x => x.length - 1)),
+			2019: sum(...years[2019].map(x => x.length - 1)),
+			2020: sum(...years[2020].map(x => x.length - 1)),
+			2021: sum(...years[2021].map(x => x.length - 1)),
+			2022: sum(...years[2022].map(x => x.length - 1)),
+		};
+	}
 
 	return (
 		<>
@@ -43,7 +58,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 										value={x}
 										disabled={!(years && years[x][day - 1] != null)}
 									>
-										{x}
+										{x} {stars && `(${stars[x]}*)`}
 									</option>
 								))}
 							</select>

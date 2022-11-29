@@ -9,5 +9,5 @@ export function lcm(a: number, b: number): number {
 }
 
 export function sum(...values: number[]): number {
-	return values.reduce((a, b) => a + b);
+	return values.reduce((a, b) => a + b, 0);
 }
