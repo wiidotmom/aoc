@@ -46,10 +46,10 @@ const getTreesFromSlope = (
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number =>
+export const findSolutionOne = (input: ReturnType<typeof parseInput>): number =>
 	getTreesFromSlope(input, 3, 1);
 
-export const findSolutionTwo = (input: string[]): number =>
+export const findSolutionTwo = (input: ReturnType<typeof parseInput>): number =>
 	getTreesFromSlope(input, 1, 1) *
 	getTreesFromSlope(input, 3, 1) *
 	getTreesFromSlope(input, 5, 1) *

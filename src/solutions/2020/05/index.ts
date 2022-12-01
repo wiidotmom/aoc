@@ -13,7 +13,9 @@ const getSeatId = (pass: string): number => {
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let seatIds: number[] = [];
 
 	input.forEach(pass => seatIds.push(getSeatId(pass)));
@@ -21,7 +23,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return Math.max(...seatIds);
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let seatIds: number[] = [];
 
 	input.forEach(pass => seatIds.push(getSeatId(pass)));

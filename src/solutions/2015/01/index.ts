@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let floor = 0;
 	input.forEach(x => {
 		floor += x == '(' ? 1 : -1;
@@ -10,7 +12,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return floor;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let char: number;
 	let floor = 0;
 	input.forEach((x, i) => {

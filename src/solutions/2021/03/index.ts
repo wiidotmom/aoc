@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let minBinary = '';
 	let maxBinary = '';
 
@@ -29,7 +31,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return gammaRate * epsilonRate;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	function getOxygenGeneratorRating(): number {
 		let filteredData = [...input];
 

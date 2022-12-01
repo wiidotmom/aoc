@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const groups = input.map(x => x.split('\n'));
 
 	let sum: number = 0;
@@ -18,7 +20,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return sum;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const groups = input.map(x => x.split('\n'));
 
 	let sum: number = 0;

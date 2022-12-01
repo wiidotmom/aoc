@@ -4,13 +4,17 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const nums = input.map(x => parseInt(x.replace('+', '')));
 
 	return sum(...nums);
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const nums = input.map(x => parseInt(x.replace('+', '')));
 
 	const frequencies = new Map<number, number>();

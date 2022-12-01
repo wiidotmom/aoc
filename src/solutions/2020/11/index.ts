@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const rows = input.map(x => x.split(''));
 
 	const processRows = (input: string[][]): string[][] => {
@@ -56,7 +58,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return occupied;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const rows = input.map(x => x.split(''));
 
 	const processRows = (input: string[][]): string[][] => {

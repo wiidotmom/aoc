@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split(',').map(x => parseInt(x));
 
-export const findSolutionOne = (input: number[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const min = Math.min(...input),
 		max = Math.max(...input);
 
@@ -15,7 +17,9 @@ export const findSolutionOne = (input: number[]): number => {
 	return cheapest!;
 };
 
-export const findSolutionTwo = (input: number[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const min = Math.min(...input),
 		max = Math.max(...input);
 

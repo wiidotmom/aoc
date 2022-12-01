@@ -4,7 +4,9 @@ import { lcm } from 'utils';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const minimum = parseInt(input[0]);
 	const busIds = input[1]
 		.split(',')
@@ -22,7 +24,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return bus! * minutes!;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const busIds = input[1].split(',').map(x => (x === 'x' ? 1 : parseInt(x)));
 
 	let step = busIds[0],

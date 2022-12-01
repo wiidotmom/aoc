@@ -26,7 +26,7 @@ const autocompletePoints = {
 	'>': 4,
 };
 
-export const findSolutionOne = (input: string[]) => {
+export const findSolutionOne = (input: ReturnType<typeof parseInput>) => {
 	let score = 0;
 
 	input.forEach(line => {
@@ -47,7 +47,7 @@ export const findSolutionOne = (input: string[]) => {
 	return score;
 };
 
-export const findSolutionTwo = (input: string[]) => {
+export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 	let lineScores: number[] = [];
 
 	input.forEach(line => {

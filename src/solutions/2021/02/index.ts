@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let pos: number = 0;
 	let depth: number = 0;
 
@@ -22,7 +24,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return pos * depth;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let aim: number = 0;
 	let pos: number = 0;
 	let depth: number = 0;

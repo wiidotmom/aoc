@@ -4,7 +4,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let easyDigits: number = 0;
 
 	input.forEach(line => {
@@ -19,7 +21,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return easyDigits;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const unmapped = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
 	const permutations = getPermutationsOfArray<string>(unmapped);
 

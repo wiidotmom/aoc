@@ -4,7 +4,9 @@ import { Grid } from 'utils';
 
 export const parseInput = () => input.split('');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const grid = new Grid(false);
 
 	grid.set(0, 0, true);
@@ -36,7 +38,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return grid.points.length;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const grid = new Grid(false);
 
 	grid.set(0, 0, true);

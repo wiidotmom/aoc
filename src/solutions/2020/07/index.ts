@@ -55,7 +55,9 @@ const getInnerBagCount = (type: BagType): number => {
 
 export const parseInput = () => input;
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let containsOriginalBag: BagType[] = [];
 
 	const getOuterBagCount = (originalType: BagType, type: BagType): number => {
@@ -77,7 +79,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return containsOriginalBag.length;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const getInnerBagCount = (type: BagType): number => {
 		let count = 0;
 

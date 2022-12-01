@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const REQUIRED_FIELDS = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'];
 
 	return input.filter(passport =>
@@ -10,7 +12,9 @@ export const findSolutionOne = (input: string[]): number => {
 	).length;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const VALIDATION_FUNCTIONS: any = {
 		byr: (byr: string): boolean =>
 			byr.length == 4 && Number(byr) >= 1920 && Number(byr) <= 2002,

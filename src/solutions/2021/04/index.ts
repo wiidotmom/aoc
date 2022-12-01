@@ -72,7 +72,9 @@ class Board {
 	}
 }
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const numbers = input[0].split(',').map(num => parseInt(num));
 	const boards = input.slice(1).map(board => new Board(board));
 
@@ -88,7 +90,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return 0;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const numbers = input[0].split(',').map(num => parseInt(num));
 	/** Make boards reassignable so they can be filtered */
 	let boards = input.slice(1).map(board => new Board(board));

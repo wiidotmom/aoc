@@ -20,7 +20,9 @@ function* getPointsOnLine(start: Vec2d, end: Vec2d) {
 	}
 }
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let lines: Vec2d[][] = [];
 
 	input.forEach(line => {
@@ -47,7 +49,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return grid.points.filter(point => point.value >= 2).length;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let lines: Vec2d[][] = [];
 
 	input.forEach(line => {

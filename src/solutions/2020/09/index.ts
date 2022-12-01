@@ -2,7 +2,9 @@ import input from './input';
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const numbers = input.map(x => Number(x));
 
 	let found = false;
@@ -23,7 +25,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return firstNum;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const numbers = input.map(x => Number(x));
 	const firstNum = findSolutionOne(input);
 

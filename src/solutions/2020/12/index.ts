@@ -19,7 +19,9 @@ interface InstructionPair {
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const instructions = input.map(x => {
 		return {
 			instruction: x[0] as InstructionType,
@@ -86,7 +88,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return Math.abs(x) + Math.abs(y);
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const instructions = input.map(x => {
 		return {
 			instruction: x[0] as InstructionType,

@@ -54,7 +54,9 @@ const step = (total: number, grid: Grid<number>): [number, Grid<number>] => {
 
 export const parseInput = () => input;
 
-export const findSolutionOne = (input: string): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let grid = createIntegerGridFromString(input);
 
 	let flashTotal = 0;
@@ -67,7 +69,9 @@ export const findSolutionOne = (input: string): number => {
 	return flashTotal;
 };
 
-export const findSolutionTwo = (input: string): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let grid = createIntegerGridFromString(input);
 
 	let sync = false;

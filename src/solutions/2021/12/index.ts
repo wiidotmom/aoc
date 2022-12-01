@@ -8,7 +8,9 @@ const findCountOfNode = (path: string[], node: string) => {
 
 export const parseInput = () => input.split('\n');
 
-export const findSolutionOne = (input: string[]): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const nodes: { [key: string]: string[] } = {};
 
 	input.forEach(line => {
@@ -36,7 +38,9 @@ export const findSolutionOne = (input: string[]): number => {
 	return paths.size;
 };
 
-export const findSolutionTwo = (input: string[]): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	const nodes: { [key: string]: string[] } = {};
 
 	input.forEach(line => {

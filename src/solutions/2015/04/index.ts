@@ -4,7 +4,9 @@ import * as crypto from 'crypto';
 
 export const parseInput = () => input;
 
-export const findSolutionOne = (input: string): number => {
+export const findSolutionOne = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let answer = -1,
 		currentNum = 0;
 	while (answer == -1) {
@@ -18,7 +20,9 @@ export const findSolutionOne = (input: string): number => {
 	return answer;
 };
 
-export const findSolutionTwo = (input: string): number => {
+export const findSolutionTwo = (
+	input: ReturnType<typeof parseInput>
+): number => {
 	let answer = -1,
 		currentNum = 0;
 	while (answer == -1) {
