@@ -174,37 +174,21 @@ export const getStaticProps: GetStaticProps = async context => {
 		];
 
 	let startTime = performance.now();
-	const answerPartOne = solutions[0](solutions[2]());
+	const answerPartOne = solutions[0] ? solutions[0](solutions[2]()) : 0;
 	let endTime = performance.now();
-	const timePartOne = endTime - startTime;
+	const timePartOne = solutions[0] ? endTime - startTime : -1;
 
 	startTime = performance.now();
-	const answerPartTwo = solutions[1](solutions[2]());
+	const answerPartTwo = solutions[1] ? solutions[1](solutions[2]()) : 0;
 	endTime = performance.now();
-	const timePartTwo = endTime - startTime;
+	const timePartTwo = solutions[1] ? endTime - startTime : -1;
 
-	if (solutions && solutions[0] && solutions[1] && solutions[2]) {
-		return {
-			props: {
-				solutions: [answerPartOne, answerPartTwo, solutions[2]()],
-				timings: [timePartOne, timePartTwo],
-			},
-		};
-	} else if (solutions && solutions[0] && solutions[2]) {
-		return {
-			props: {
-				solutions: [answerPartOne, 0, solutions[2]()],
-				timings: [timePartOne, -1],
-			},
-		};
-	} else {
-		return {
-			props: {
-				solutions: [0, 0, ''],
-				timings: [-1, -1],
-			},
-		};
-	}
+	return {
+		props: {
+			solutions: [answerPartOne, answerPartTwo, solutions[2]()],
+			timings: [timePartOne, timePartTwo],
+		},
+	};
 };
 
 export const getStaticPaths = async () => {
