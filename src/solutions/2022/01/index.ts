@@ -7,34 +7,19 @@ export const parseInput = () => input.split('\n\n');
 export const findSolutionOne = (
 	input: ReturnType<typeof parseInput>
 ): number => {
-	let max = 0;
-	input.forEach(inventory => {
-		const food = inventory.split('\n');
-		const total = sum(...food.map(x => parseInt(x)));
-		if (total > max) max = total;
-	});
-	return max;
+	const inventories = input.map(inventory =>
+		sum(...inventory.split('\n').map(x => parseInt(x)))
+	);
+	inventories.sort((a, b) => b - a);
+	return inventories[0];
 };
 
 export const findSolutionTwo = (
 	input: ReturnType<typeof parseInput>
 ): number => {
-	let maxOne = 0,
-		maxTwo = 0,
-		maxThree = 0;
-	input.forEach(inventory => {
-		const food = inventory.split('\n');
-		const total = sum(...food.map(x => parseInt(x)));
-		if (total > maxOne) {
-			maxThree = maxTwo;
-			maxTwo = maxOne;
-			maxOne = total;
-		} else if (total > maxTwo) {
-			maxThree = maxTwo;
-			maxTwo = total;
-		} else if (total > maxThree) {
-			maxThree = total;
-		}
-	});
-	return sum(maxOne, maxTwo, maxThree);
+	const inventories = input.map(inventory =>
+		sum(...inventory.split('\n').map(x => parseInt(x)))
+	);
+	inventories.sort((a, b) => b - a);
+	return sum(inventories[0], inventories[1], inventories[2]);
 };
