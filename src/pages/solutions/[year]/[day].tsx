@@ -185,7 +185,11 @@ export const getStaticProps: GetStaticProps = async context => {
 
 	return {
 		props: {
-			solutions: [answerPartOne, answerPartTwo, solutions[2]()],
+			solutions: [
+				answerPartOne,
+				answerPartTwo,
+				solutions[0] ? solutions[2]() : '',
+			],
 			timings: [timePartOne, timePartTwo],
 		},
 	};
