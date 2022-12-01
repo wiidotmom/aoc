@@ -1,17 +1,20 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { useContext, useState } from 'react';
+import { performance } from 'perf_hooks';
 import Link from 'next/link';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 import styled from 'styled-components';
-
 import { Eye, EyeOff, ExternalLink } from 'react-feather';
 
 import { DayContext } from 'components/Layout';
 import { formatDay } from 'lib/calendar';
 
-const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
+const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
+	solutions,
+	timings,
+}) => {
 	const { year, day } = useContext(DayContext);
 	const { year: routerYear, day: routerDay } = useRouter().query;
 
@@ -74,7 +77,8 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 					<SolutionGroup>
 						<h3>Part One</h3>
 						<SolutionDescription>
-							My solution is <SolutionText>{solutions[0]}</SolutionText>
+							My solution is <SolutionText>{solutions[0]}</SolutionText> (found
+							in {timings[0].toFixed(4)}ms)
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (
@@ -89,7 +93,8 @@ const Day: NextPage<{ solutions: any[] }> = ({ solutions }) => {
 					<SolutionGroup>
 						<h3>Part Two</h3>
 						<SolutionDescription>
-							My solution is <SolutionText>{solutions[1]}</SolutionText>
+							My solution is <SolutionText>{solutions[1]}</SolutionText> (found
+							in {timings[1].toFixed(4)}ms)
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (
@@ -168,26 +173,35 @@ export const getStaticProps: GetStaticProps = async context => {
 			parseInt(context.params?.day as string) - 1
 		];
 
+	let startTime = performance.now();
+	const answerPartOne = solutions[0](solutions[2]());
+	let endTime = performance.now();
+	const timePartOne = endTime - startTime;
+
+	startTime = performance.now();
+	const answerPartTwo = solutions[1](solutions[2]());
+	endTime = performance.now();
+	const timePartTwo = endTime - startTime;
+
 	if (solutions && solutions[0] && solutions[1] && solutions[2]) {
 		return {
 			props: {
-				solutions: [
-					solutions[0](solutions[2]()),
-					solutions[1](solutions[2]()),
-					solutions[2](),
-				],
+				solutions: [answerPartOne, answerPartTwo, solutions[2]()],
+				timings: [timePartOne, timePartTwo],
 			},
 		};
 	} else if (solutions && solutions[0] && solutions[2]) {
 		return {
 			props: {
-				solutions: [solutions[0](solutions[2]()), 0, solutions[2]()],
+				solutions: [answerPartOne, 0, solutions[2]()],
+				timings: [timePartOne, -1],
 			},
 		};
 	} else {
 		return {
 			props: {
 				solutions: [0, 0, ''],
+				timings: [-1, -1],
 			},
 		};
 	}
