@@ -174,21 +174,23 @@ export const getStaticProps: GetStaticProps = async context => {
 		];
 
 	let startTime = performance.now();
-	const answerPartOne = solutions[0] ? solutions[0](solutions[2]()) : 0;
+	const answerPartOne =
+		solutions && solutions[0] ? solutions[0](solutions[2]()) : 0;
 	let endTime = performance.now();
-	const timePartOne = solutions[0] ? endTime - startTime : -1;
+	const timePartOne = solutions && solutions[0] ? endTime - startTime : -1;
 
 	startTime = performance.now();
-	const answerPartTwo = solutions[1] ? solutions[1](solutions[2]()) : 0;
+	const answerPartTwo =
+		solutions && solutions[1] ? solutions[1](solutions[2]()) : 0;
 	endTime = performance.now();
-	const timePartTwo = solutions[1] ? endTime - startTime : -1;
+	const timePartTwo = solutions && solutions[1] ? endTime - startTime : -1;
 
 	return {
 		props: {
 			solutions: [
 				answerPartOne,
 				answerPartTwo,
-				solutions[0] ? solutions[2]() : '',
+				solutions && solutions[0] ? solutions[2]() : '',
 			],
 			timings: [timePartOne, timePartTwo],
 		},
