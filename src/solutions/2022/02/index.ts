@@ -6,61 +6,29 @@ export const findSolutionOne = (
 	input: ReturnType<typeof parseInput>
 ): number => {
 	let myScore = 0;
-	input.forEach(round => {
-		const [them, me] = round.split(' ');
 
-		switch (them) {
-			case 'A': {
-				switch (me) {
-					case 'X': {
-						myScore += 1 + 3;
-						break;
-					}
-					case 'Y': {
-						myScore += 2 + 6;
-						break;
-					}
-					case 'Z': {
-						myScore += 3 + 0;
-					}
-				}
-				break;
-			}
-			case 'B': {
-				switch (me) {
-					case 'X': {
-						myScore += 1 + 0;
-						break;
-					}
-					case 'Y': {
-						myScore += 2 + 3;
-						break;
-					}
-					case 'Z': {
-						myScore += 3 + 6;
-						break;
-					}
-				}
-				break;
-			}
-			case 'C': {
-				switch (me) {
-					case 'X': {
-						myScore += 1 + 6;
-						break;
-					}
-					case 'Y': {
-						myScore += 2 + 0;
-						break;
-					}
-					case 'Z': {
-						myScore += 3 + 3;
-						break;
-					}
-				}
-				break;
-			}
-		}
+	const scoreValues = {
+		A: {
+			X: 1 + 3,
+			Y: 2 + 6,
+			Z: 3 + 0,
+		},
+		B: {
+			X: 1 + 0,
+			Y: 2 + 3,
+			Z: 3 + 6,
+		},
+		C: {
+			X: 1 + 6,
+			Y: 2 + 0,
+			Z: 3 + 3,
+		},
+	};
+
+	input.forEach(round => {
+		const [them, me] = round.split(' ') as ['A' | 'B' | 'C', 'X' | 'Y' | 'Z'];
+
+		myScore += scoreValues[them][me];
 	});
 
 	return myScore;
@@ -71,62 +39,28 @@ export const findSolutionTwo = (
 ): number => {
 	let myScore = 0;
 
-	input.forEach(round => {
-		const [them, me] = round.split(' ');
+	const scoreValues = {
+		A: {
+			X: 3 + 0,
+			Y: 1 + 3,
+			Z: 2 + 6,
+		},
+		B: {
+			X: 1 + 0,
+			Y: 2 + 3,
+			Z: 3 + 6,
+		},
+		C: {
+			X: 2 + 0,
+			Y: 3 + 3,
+			Z: 1 + 6,
+		},
+	};
 
-		switch (them) {
-			case 'A': {
-				switch (me) {
-					case 'X': {
-						myScore += 3 + 0;
-						break;
-					}
-					case 'Y': {
-						myScore += 1 + 3;
-						break;
-					}
-					case 'Z': {
-						myScore += 2 + 6;
-						break;
-					}
-				}
-				break;
-			}
-			case 'B': {
-				switch (me) {
-					case 'X': {
-						myScore += 1 + 0;
-						break;
-					}
-					case 'Y': {
-						myScore += 2 + 3;
-						break;
-					}
-					case 'Z': {
-						myScore += 3 + 6;
-						break;
-					}
-				}
-				break;
-			}
-			case 'C': {
-				switch (me) {
-					case 'X': {
-						myScore += 2 + 0;
-						break;
-					}
-					case 'Y': {
-						myScore += 3 + 3;
-						break;
-					}
-					case 'Z': {
-						myScore += 1 + 6;
-						break;
-					}
-				}
-				break;
-			}
-		}
+	input.forEach(round => {
+		const [them, me] = round.split(' ') as ['A' | 'B' | 'C', 'X' | 'Y' | 'Z'];
+
+		myScore += scoreValues[them][me];
 	});
 
 	return myScore;
