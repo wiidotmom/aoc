@@ -83,6 +83,10 @@ export class Grid<T> {
 		this.grid.set(this.pointToString(x, y), value);
 	}
 
+	public delete(x: number, y: number) {
+		this.grid.delete(this.pointToString(x, y));
+	}
+
 	public toArray() {
 		const { min, max } = this.bounds;
 		const array = create2dArrayWithBounds(

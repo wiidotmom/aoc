@@ -8,8 +8,8 @@ import y2021 from './2021';
 import y2022 from './2022';
 
 export interface Solution {
-	findSolutionOne?: { (input: any): number };
-	findSolutionTwo?: { (input: any): number };
+	findSolutionOne?: { (input: any): number | string };
+	findSolutionTwo?: { (input: any): number | string };
 	parseInput: { (): any };
 }
 

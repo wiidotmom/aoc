@@ -265,12 +265,14 @@ const SolutionDescription = styled.span`
 	font-size: 1em;
 `;
 
-const SolutionText = styled.span`
+const SolutionText = styled.p`
 	font-size: 1em;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	background-color: rgba(255, 255, 255, 0.1);
 	padding: 5px;
 	text-shadow: 0px 0px 4px white;
+	display: inline-block;
+	white-space: pre;
 `;
 
 const InputButton = styled.span`
