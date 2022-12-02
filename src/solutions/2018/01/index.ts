@@ -1,4 +1,4 @@
-import { sum } from 'utils';
+import { incrementMap, sum } from 'utils';
 
 import input from './input';
 
@@ -24,8 +24,7 @@ export const findSolutionTwo = (
 		nums.forEach(num => {
 			if (frequencies.get(currentFreq) == 2) return;
 			currentFreq += num;
-			if (!frequencies.has(currentFreq)) frequencies.set(currentFreq, 0);
-			frequencies.set(currentFreq, frequencies.get(currentFreq)! + 1);
+			incrementMap(frequencies, currentFreq);
 		});
 	}
 	return currentFreq;
