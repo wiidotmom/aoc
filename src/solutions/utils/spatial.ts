@@ -3,6 +3,10 @@ export interface Vec2d {
 	y: number;
 }
 
+export function vec2d(x: number, y: number): Vec2d {
+	return { x, y };
+}
+
 export function create2dArrayWithBounds<T>(
 	boundY: number,
 	boundX: number,
@@ -87,6 +91,52 @@ export class Grid<T> {
 		this.grid.delete(this.pointToString(x, y));
 	}
 
+	public getCardinalNeighbors(x: number, y: number) {
+		const neighbors: Vec2d[] = [];
+
+		[
+			vec2d(x, y + 1),
+			vec2d(x - 1, y),
+			vec2d(x + 1, y),
+			vec2d(x, y - 1),
+		].forEach(possibleNeighbor => {
+			if (
+				possibleNeighbor.x >= this.bounds.min.x &&
+				possibleNeighbor.x <= this.bounds.max.x &&
+				possibleNeighbor.y >= this.bounds.min.y &&
+				possibleNeighbor.y <= this.bounds.max.y
+			)
+				neighbors.push(possibleNeighbor);
+		});
+
+		return neighbors;
+	}
+
+	public getNeighbors(x: number, y: number) {
+		const neighbors: Vec2d[] = [];
+
+		[
+			vec2d(x - 1, y + 1),
+			vec2d(x, y + 1),
+			vec2d(x + 1, y + 1),
+			vec2d(x - 1, y),
+			vec2d(x + 1, y),
+			vec2d(x - 1, y - 1),
+			vec2d(x, y - 1),
+			vec2d(x + 1, y - 1),
+		].forEach(possibleNeighbor => {
+			if (
+				possibleNeighbor.x >= this.bounds.min.x &&
+				possibleNeighbor.x <= this.bounds.max.x &&
+				possibleNeighbor.y >= this.bounds.min.y &&
+				possibleNeighbor.y <= this.bounds.max.y
+			)
+				neighbors.push(possibleNeighbor);
+		});
+
+		return neighbors;
+	}
+
 	public toArray() {
 		const { min, max } = this.bounds;
 		const array = create2dArrayWithBounds(
@@ -110,4 +160,12 @@ export class Grid<T> {
 		clone.grid = new Map(this.grid);
 		return clone;
 	}
+}
+
+export function visualizeBooleanGrid(grid: Grid<boolean>) {
+	return grid
+		.toArray()
+		.map(x => x.map(y => (y ? '█' : '░')))
+		.map(x => x.join(''))
+		.join('\n');
 }

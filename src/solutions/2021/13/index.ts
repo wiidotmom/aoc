@@ -1,4 +1,4 @@
-import { Grid, Vec2d } from 'utils';
+import { Grid, Vec2d, visualizeBooleanGrid } from 'utils';
 
 import input from './input';
 
@@ -45,13 +45,6 @@ const runInstruction = (
 	return grid.clone();
 };
 
-const visualizeGrid = (grid: Grid<boolean>) =>
-	grid
-		.toArray()
-		.map(x => x.map(y => (y ? '█' : '░')))
-		.map(x => x.join(''))
-		.join('\n');
-
 export const findSolutionOne = (
 	input: ReturnType<typeof parseInput>
 ): number => {
@@ -74,5 +67,5 @@ export const findSolutionTwo = (
 		grid = runInstruction(grid, instruction);
 	});
 
-	return visualizeGrid(grid);
+	return visualizeBooleanGrid(grid);
 };
