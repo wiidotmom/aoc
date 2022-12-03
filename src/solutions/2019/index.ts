@@ -1,5 +1,7 @@
 import { Solution } from 'solutions';
 
-const solutions: Solution[] = [];
+import * as day01 from './01';
+
+const solutions: Solution[] = [day01];
 
 export default solutions;
