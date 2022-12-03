@@ -91,40 +91,22 @@ export class Grid<T> {
 		this.grid.delete(this.pointToString(x, y));
 	}
 
-	public getCardinalNeighbors(x: number, y: number) {
+	public getNeighbors(x: number, y: number, includeDiagonals: boolean = false) {
 		const neighbors: Vec2d[] = [];
 
-		[
-			vec2d(x, y + 1),
-			vec2d(x - 1, y),
-			vec2d(x + 1, y),
-			vec2d(x, y - 1),
-		].forEach(possibleNeighbor => {
-			if (
-				possibleNeighbor.x >= this.bounds.min.x &&
-				possibleNeighbor.x <= this.bounds.max.x &&
-				possibleNeighbor.y >= this.bounds.min.y &&
-				possibleNeighbor.y <= this.bounds.max.y
-			)
-				neighbors.push(possibleNeighbor);
-		});
-
-		return neighbors;
-	}
-
-	public getNeighbors(x: number, y: number) {
-		const neighbors: Vec2d[] = [];
-
-		[
-			vec2d(x - 1, y + 1),
-			vec2d(x, y + 1),
-			vec2d(x + 1, y + 1),
-			vec2d(x - 1, y),
-			vec2d(x + 1, y),
-			vec2d(x - 1, y - 1),
-			vec2d(x, y - 1),
-			vec2d(x + 1, y - 1),
-		].forEach(possibleNeighbor => {
+		(includeDiagonals
+			? [
+					vec2d(x - 1, y + 1),
+					vec2d(x, y + 1),
+					vec2d(x + 1, y + 1),
+					vec2d(x - 1, y),
+					vec2d(x + 1, y),
+					vec2d(x - 1, y - 1),
+					vec2d(x, y - 1),
+					vec2d(x + 1, y - 1),
+			  ]
+			: [vec2d(x, y + 1), vec2d(x - 1, y), vec2d(x + 1, y), vec2d(x, y - 1)]
+		).forEach(possibleNeighbor => {
 			if (
 				possibleNeighbor.x >= this.bounds.min.x &&
 				possibleNeighbor.x <= this.bounds.max.x &&
