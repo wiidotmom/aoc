@@ -190,7 +190,11 @@ export const getStaticProps: GetStaticProps = async context => {
 			solutions: [
 				answerPartOne,
 				answerPartTwo,
-				solutions && solutions[0] ? solutions[2]() : '',
+				(
+					await import(
+						`../../../solutions/${context.params?.year}/${context.params?.day}/input`
+					)
+				).default,
 			],
 			timings: [timePartOne, timePartTwo],
 		},
