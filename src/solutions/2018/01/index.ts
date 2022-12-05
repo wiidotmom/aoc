@@ -29,3 +29,5 @@ export const findSolutionTwo = (
 	}
 	return currentFreq;
 };
+
+export { default as input } from './input';

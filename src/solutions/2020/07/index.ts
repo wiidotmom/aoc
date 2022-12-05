@@ -97,3 +97,5 @@ export const findSolutionTwo = (
 	};
 	return getInnerBagCount('shiny gold');
 };
+
+export { default as input } from './input';

@@ -55,3 +55,5 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>): number =>
 	getTreesFromSlope(input, 5, 1) *
 	getTreesFromSlope(input, 7, 1) *
 	getTreesFromSlope(input, 1, 2);
+
+export { default as input } from './input';

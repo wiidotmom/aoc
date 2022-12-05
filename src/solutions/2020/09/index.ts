@@ -42,3 +42,5 @@ export const findSolutionTwo = (
 	});
 	return secondNum;
 };
+
+export { default as input } from './input';

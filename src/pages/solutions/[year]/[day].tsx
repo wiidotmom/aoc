@@ -187,15 +187,7 @@ export const getStaticProps: GetStaticProps = async context => {
 
 	return {
 		props: {
-			solutions: [
-				answerPartOne,
-				answerPartTwo,
-				(
-					await import(
-						`../../../solutions/${context.params?.year}/${context.params?.day}/input`
-					)
-				).default,
-			],
+			solutions: [answerPartOne, answerPartTwo, solutions[3]],
 			timings: [timePartOne, timePartTwo],
 		},
 	};

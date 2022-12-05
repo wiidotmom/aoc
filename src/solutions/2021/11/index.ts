@@ -89,3 +89,5 @@ export const findSolutionTwo = (
 
 	return stepNum;
 };
+
+export { default as input } from './input';

@@ -60,3 +60,5 @@ export const findSolutionOne = run;
 
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>) =>
 	run(input, false);
+
+export { default as input } from './input';

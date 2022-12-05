@@ -65,3 +65,5 @@ export const findSolutionTwo = (
 
 	return correctOutputs.map(x => parseInt(x.join(''))).reduce((a, b) => a + b);
 };
+
+export { default as input } from './input';

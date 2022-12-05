@@ -49,3 +49,5 @@ export const findSolutionTwo = (
 
 	return total;
 };
+
+export { default as input } from './input';

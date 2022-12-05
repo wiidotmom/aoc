@@ -62,3 +62,5 @@ export const findSolutionTwo = (
 			)
 	).length;
 };
+
+export { default as input } from './input';

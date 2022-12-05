@@ -38,3 +38,5 @@ export const findSolutionTwo = (
 	});
 	return sum;
 };
+
+export { default as input } from './input';

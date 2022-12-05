@@ -65,3 +65,5 @@ export const findSolutionTwo = (
 
 	return myScore;
 };
+
+export { default as input } from './input';

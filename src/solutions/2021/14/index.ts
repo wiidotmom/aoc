@@ -53,3 +53,5 @@ export const findSolutionOne = (input: ReturnType<typeof parseInput>) => {
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 	return run(input.template, input.rules, 40);
 };
+
+export { default as input } from './input';

@@ -69,3 +69,5 @@ export const findSolutionTwo = (
 
 	return visualizeBooleanGrid(grid);
 };
+
+export { default as input } from './input';

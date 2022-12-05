@@ -19,3 +19,5 @@ export const findSolutionOne = (input: ReturnType<typeof parseInput>): number =>
 
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>): number =>
 	sum(...input.map(x => getRecursiveFuel(+x)));
+
+export { default as input } from './input';

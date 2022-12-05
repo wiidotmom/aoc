@@ -153,3 +153,5 @@ export const findSolutionTwo = (
 
 	return Math.abs(ship.x) + Math.abs(ship.y);
 };
+
+export { default as input } from './input';

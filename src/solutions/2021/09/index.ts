@@ -81,3 +81,5 @@ export const findSolutionTwo = (
 		.slice(-3)
 		.reduce((a, b) => a * b);
 };
+
+export { default as input } from './input';

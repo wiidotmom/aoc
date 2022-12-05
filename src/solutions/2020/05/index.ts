@@ -40,3 +40,5 @@ export const findSolutionTwo = (
 	}
 	return seat;
 };
+
+export { default as input } from './input';

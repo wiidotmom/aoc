@@ -35,3 +35,5 @@ export const findSolutionTwo = (
 	}
 	return answer;
 };
+
+export { default as input } from './input';

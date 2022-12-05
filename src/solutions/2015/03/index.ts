@@ -110,3 +110,5 @@ export const findSolutionTwo = (
 
 	return grid.points.length;
 };
+
+export { default as input } from './input';

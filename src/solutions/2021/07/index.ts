@@ -35,3 +35,5 @@ export const findSolutionTwo = (
 
 	return cheapest!;
 };
+
+export { default as input } from './input';

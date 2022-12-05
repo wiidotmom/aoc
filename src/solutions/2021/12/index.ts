@@ -76,3 +76,5 @@ export const findSolutionTwo = (
 
 	return paths.size;
 };
+
+export { default as input } from './input';

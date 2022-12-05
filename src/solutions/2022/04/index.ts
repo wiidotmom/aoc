@@ -18,3 +18,5 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) =>
 	input.filter(x =>
 		x[0].some(y => x[1].includes(y) || x[1].some(y => x[0].includes(y)))
 	).length;
+
+export { default as input } from './input';

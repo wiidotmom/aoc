@@ -23,3 +23,5 @@ export const findSolutionTwo = (
 	inventories.sort((a, b) => b - a);
 	return sum(inventories[0], inventories[1], inventories[2]);
 };
+
+export { default as input } from './input';

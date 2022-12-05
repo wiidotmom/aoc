@@ -38,3 +38,5 @@ export const findSolutionTwo = (
 	});
 	return valids;
 };
+
+export { default as input } from './input';

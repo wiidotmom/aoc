@@ -31,3 +31,5 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) =>
 			.filter(x => x !== undefined)
 			.map(x => getPriority(x!))
 	);
+
+export { default as input } from './input';

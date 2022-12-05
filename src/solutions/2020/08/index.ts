@@ -72,3 +72,5 @@ export const findSolutionOne = (input: ReturnType<typeof parseInput>): number =>
 
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>): number =>
 	fixInstructions(input);
+
+export { default as input } from './input';

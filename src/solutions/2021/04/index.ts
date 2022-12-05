@@ -111,3 +111,5 @@ export const findSolutionTwo = (
 
 	return 0;
 };
+
+export { default as input } from './input';

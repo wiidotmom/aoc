@@ -49,3 +49,5 @@ export const findSolutionTwo = (
 
 	return pos * depth;
 };
+
+export { default as input } from './input';

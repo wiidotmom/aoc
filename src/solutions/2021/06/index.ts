@@ -54,3 +54,5 @@ export const findSolutionTwo = (
 
 	return sea.runSimulation();
 };
+
+export { default as input } from './input';

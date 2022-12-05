@@ -153,3 +153,5 @@ export const findSolutionTwo = (
 
 	return occupied;
 };
+
+export { default as input } from './input';

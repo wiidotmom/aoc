@@ -37,3 +37,5 @@ export const findSolutionTwo = (
 
 	return inc;
 };
+
+export { default as input } from './input';

@@ -11,10 +11,11 @@ export interface Solution {
 	findSolutionOne?: { (input: any): number | string };
 	findSolutionTwo?: { (input: any): number | string };
 	parseInput: { (): any };
+	input: string;
 }
 
 function map(x: any) {
-	return [x.findSolutionOne, x.findSolutionTwo, x.parseInput];
+	return [x.findSolutionOne, x.findSolutionTwo, x.parseInput, x.input];
 }
 
 const years: { [key: number]: any[][] } = {

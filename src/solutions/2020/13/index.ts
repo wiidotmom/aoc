@@ -43,3 +43,5 @@ export const findSolutionTwo = (
 
 	return t;
 };
+
+export { default as input } from './input';

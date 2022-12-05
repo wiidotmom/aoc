@@ -77,3 +77,5 @@ export const findSolutionTwo = (
 
 	return grid.points.filter(point => point.value >= 2).length;
 };
+
+export { default as input } from './input';

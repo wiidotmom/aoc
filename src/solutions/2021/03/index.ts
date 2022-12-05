@@ -82,3 +82,5 @@ export const findSolutionTwo = (
 
 	return getOxygenGeneratorRating() * getCO2ScrubberRating();
 };
+
+export { default as input } from './input';

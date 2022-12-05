@@ -77,3 +77,5 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 
 	return lineScores.sort((a, b) => a - b)[Math.floor(lineScores.length / 2)];
 };
+
+export { default as input } from './input';
