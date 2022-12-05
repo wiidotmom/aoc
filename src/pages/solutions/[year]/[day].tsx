@@ -185,7 +185,7 @@ export const getStaticProps: GetStaticProps = async context => {
 	endTime = performance.now();
 	const timePartTwo = solutions && solutions[1] ? endTime - startTime : -1;
 
-	const input = solutions && solutions[3] ? solutions[3] : undefined;
+	const input = solutions && solutions[3] ? solutions[3] : null;
 
 	return {
 		props: {
