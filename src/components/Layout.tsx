@@ -19,17 +19,18 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 	});
 	const { data: years } = useYears();
 
+	const getStarCount = (x: any[]) => x.length - 2;
 	let stars: { [key: number]: number };
 	if (years) {
 		stars = {
-			2015: sum(...years[2015].map(x => x.length - 1)),
-			2016: sum(...years[2016].map(x => x.length - 1)),
-			2017: sum(...years[2017].map(x => x.length - 1)),
-			2018: sum(...years[2018].map(x => x.length - 1)),
-			2019: sum(...years[2019].map(x => x.length - 1)),
-			2020: sum(...years[2020].map(x => x.length - 1)),
-			2021: sum(...years[2021].map(x => x.length - 1)),
-			2022: sum(...years[2022].map(x => x.length - 1)),
+			2015: sum(...years[2015].map(getStarCount)),
+			2016: sum(...years[2016].map(getStarCount)),
+			2017: sum(...years[2017].map(getStarCount)),
+			2018: sum(...years[2018].map(getStarCount)),
+			2019: sum(...years[2019].map(getStarCount)),
+			2020: sum(...years[2020].map(getStarCount)),
+			2021: sum(...years[2021].map(getStarCount)),
+			2022: sum(...years[2022].map(getStarCount)),
 		};
 	}
 
