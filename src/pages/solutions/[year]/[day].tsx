@@ -70,7 +70,16 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 			</Head>
 			<PageContent>
 				<h2>
-					{routerYear}, Day {formatDay(parseInt(routerDay as string))}
+					{routerYear}, Day {formatDay(parseInt(routerDay as string))}{' '}
+					<span
+						style={{
+							userSelect: 'none',
+							color: '#ffff66',
+							fontWeight: 400,
+						}}
+					>
+						{'**'.substring(0, solutions.filter(x => x != 0).length)}
+					</span>
 				</h2>
 				<hr />
 				{solutions[0] !== 0 ? (
@@ -230,8 +239,7 @@ const PageContent = styled.div`
 	width: 80%;
 
 	font-size: 1em;
-	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		Liberation Mono, Courier New, monospace;
+	font-family: 'Source Code Pro', monospace;
 
 	@media only screen and (max-width: 1100px) {
 		width: 100%;
@@ -267,7 +275,7 @@ const SolutionText = styled.p`
 	font-size: 1em;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	background-color: rgba(255, 255, 255, 0.1);
-	padding: 5px;
+	padding: 4px;
 	text-shadow: 0px 0px 4px white;
 	display: inline-block;
 	white-space: pre;
@@ -336,6 +344,6 @@ const InputDisplay = styled.div`
 	font-size: 1em;
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	background-color: rgba(255, 255, 255, 0.1);
-	padding: 25px;
+	padding: 20px;
 	text-shadow: 0px 0px 4px white;
 `;

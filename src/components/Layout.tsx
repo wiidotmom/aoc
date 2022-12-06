@@ -125,8 +125,7 @@ const Navbar = styled.div`
 
 	height: 100px;
 
-	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-		Liberation Mono, Courier New, monospace;
+	font-family: 'Source Code Pro', monospace;
 
 	user-select: none;
 
@@ -185,8 +184,7 @@ const SelectGroup = styled.div`
 		background-color: #010409;
 		color: white;
 
-		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-			Liberation Mono, Courier New, monospace;
+		font-family: 'Source Code Pro', monospace;
 		font-size: 1em;
 	}
 `;
