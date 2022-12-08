@@ -75,6 +75,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 						style={{
 							userSelect: 'none',
 							color: '#ffff66',
+							textShadow: '0 0 5px #ffff66',
 							fontWeight: 400,
 						}}
 					>
