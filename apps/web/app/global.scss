@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Code+Pro:wght@300&display=swap');
+
+html,
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #010409;
+	color: white;
+	font-family: 'Source Code Pro', monospace;
+	font-size: 14pt;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+@-moz-document url-prefix() {
+	select {
+		color: rgba(0, 0, 0, 0);
+		text-shadow: 0 0 0 #ffffff;
+	}
+}
+
+h1,
+h2 {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+a {
+	text-decoration: none;
+	color: #d900d9;
+}
+a:hover,
+a:focus {
+	color: #ff70ff;
+}
+
+.ImportantLink {
+	color: #f200f2;
+	text-shadow: 0 0 2px #f200f2, 0 0 5px #f200f2;
+}
