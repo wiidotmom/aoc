@@ -10,6 +10,10 @@ body {
 	font-size: 14pt;
 }
 
+body {
+	margin: 8px;
+}
+
 * {
 	padding: 0;
 	margin: 0;
@@ -35,6 +39,10 @@ a {
 a:hover,
 a:focus {
 	color: #ff70ff;
+}
+
+header {
+	white-space: nowrap;
 }
 
 .ImportantLink {
