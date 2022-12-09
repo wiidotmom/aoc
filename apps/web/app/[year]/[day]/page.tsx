@@ -1,5 +1,3 @@
-import { ColoredSpan, ImportantLink, Link } from 'ui';
-
 export default function Day({ params: { year, day } }: any) {
 	return (
 		<>
