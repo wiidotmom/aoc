@@ -1,8 +1,4 @@
-export default function Day({
-	params: { year, day },
-}: {
-	params: { year: number; day: number };
-}) {
+export default function Day({ params: { year, day } }: any) {
 	return (
 		<h1>
 			Hello World {year} {day}
