@@ -4,8 +4,8 @@ export function ColoredSpan({ children }: React.PropsWithChildren) {
 	return (
 		<span
 			style={{
-				color: '#c900c9',
-				textShadow: '0 0 2px #c900c9, 0 0 5px #c900c9',
+				color: '#8f008f',
+				textShadow: '0 0 2px #8f008f, 0 0 5px #8f008f',
 			}}
 		>
 			{children}

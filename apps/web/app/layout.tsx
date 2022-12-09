@@ -1,4 +1,4 @@
-import { ImportantLink, NavLink } from 'ui';
+import { ColoredSpan, ImportantLink, NavLink } from 'ui';
 
 import './global.scss';
 
@@ -22,8 +22,9 @@ export default function RootLayout({
 						</div>
 					</div>
 					<div style={{ display: 'flex' }}>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<ImportantLink href="/">2022</ImportantLink>
+						<ColoredSpan>.ts</ColoredSpan>
 						<div style={{ marginLeft: '1em' }}>
 							<NavLink href="/2022">[Calendar]</NavLink>
 							<NavLink href="/leaderboard">[Leaderboard]</NavLink>
