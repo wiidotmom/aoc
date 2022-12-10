@@ -144,10 +144,10 @@ export class Grid<T> {
 	}
 }
 
-export function visualizeBooleanGrid(grid: Grid<boolean>) {
+export function visualizeBooleanGrid(grid: Grid<boolean>, on = '█', off = '░') {
 	return grid
 		.toArray()
-		.map(x => x.map(y => (y ? '█' : '░')))
+		.map(x => x.map(y => (y ? on : off)))
 		.map(x => x.join(''))
 		.join('\n');
 }

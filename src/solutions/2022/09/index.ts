@@ -1,4 +1,4 @@
-import { Grid, vec2d, visualizeBooleanGrid } from 'utils';
+import { Grid, vec2d } from 'utils';
 
 import input from './input';
 
