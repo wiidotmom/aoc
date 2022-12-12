@@ -73,28 +73,26 @@ export class Grid<T> {
 		};
 	}
 
-	private pointToString(x: number, y: number) {
+	public static pointToString(x: number, y: number) {
 		return `${x},${y}`;
 	}
 
 	public get(x: number, y: number): T {
-		return this.grid.has(this.pointToString(x, y))
-			? (this.grid.get(this.pointToString(x, y)) as T)
+		return this.grid.has(Grid.pointToString(x, y))
+			? (this.grid.get(Grid.pointToString(x, y)) as T)
 			: this.defaultValue;
 	}
 
 	public set(x: number, y: number, value: T) {
-		this.grid.set(this.pointToString(x, y), value);
+		this.grid.set(Grid.pointToString(x, y), value);
 	}
 
 	public delete(x: number, y: number) {
-		this.grid.delete(this.pointToString(x, y));
+		this.grid.delete(Grid.pointToString(x, y));
 	}
 
 	public getNeighbors(x: number, y: number, includeDiagonals: boolean = false) {
-		const neighbors: Vec2d[] = [];
-
-		(includeDiagonals
+		return includeDiagonals
 			? [
 					vec2d(x - 1, y + 1),
 					vec2d(x, y + 1),
@@ -105,18 +103,18 @@ export class Grid<T> {
 					vec2d(x, y - 1),
 					vec2d(x + 1, y - 1),
 			  ]
-			: [vec2d(x, y + 1), vec2d(x - 1, y), vec2d(x + 1, y), vec2d(x, y - 1)]
-		).forEach(possibleNeighbor => {
-			if (
-				possibleNeighbor.x >= this.bounds.min.x &&
-				possibleNeighbor.x <= this.bounds.max.x &&
-				possibleNeighbor.y >= this.bounds.min.y &&
-				possibleNeighbor.y <= this.bounds.max.y
-			)
-				neighbors.push(possibleNeighbor);
-		});
-
-		return neighbors;
+			: [
+					vec2d(x, y + 1),
+					vec2d(x - 1, y),
+					vec2d(x + 1, y),
+					vec2d(x, y - 1),
+			  ].filter(
+					possibleNeighbor =>
+						possibleNeighbor.x >= this.bounds.min.x &&
+						possibleNeighbor.x <= this.bounds.max.x &&
+						possibleNeighbor.y >= this.bounds.min.y &&
+						possibleNeighbor.y <= this.bounds.max.y
+			  );
 	}
 
 	public toArray() {

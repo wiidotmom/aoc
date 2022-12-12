@@ -11,6 +11,7 @@ import * as day08 from './08';
 import * as day09 from './09';
 import * as day10 from './10';
 import * as day11 from './11';
+import * as day12 from './12';
 
 const solutions: Solution[] = [
 	day01,
@@ -24,6 +25,7 @@ const solutions: Solution[] = [
 	day09,
 	day10,
 	day11,
+	day12,
 ];
 
 export default solutions;
