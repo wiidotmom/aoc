@@ -53,6 +53,7 @@ export const findSolutionOne = (input: ReturnType<typeof parseInput>) => {
 					queue.push([neighbor, dist + 1]);
 			});
 	}
+	return -1;
 };
 
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
