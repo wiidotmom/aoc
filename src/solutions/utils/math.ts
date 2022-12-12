@@ -8,6 +8,10 @@ export function lcm(a: number, b: number): number {
 	return Math.abs((a * b) / gcd(a, b));
 }
 
+export function lcmMany(...values: number[]): number {
+	return values.reduce(lcm, 1);
+}
+
 export function sum(...values: number[]): number {
 	return values.reduce((a, b) => a + b, 0);
 }
