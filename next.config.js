@@ -6,7 +6,7 @@ module.exports = {
 		return [
 			{
 				source: '/',
-				destination: '/solutions/2022/01',
+				destination: '/solutions/2023/01',
 				permanent: false,
 			},
 		];
