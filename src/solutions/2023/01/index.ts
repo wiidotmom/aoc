@@ -37,7 +37,7 @@ export const findSolutionTwo = (
 			let lastDig = digs[digs.length - 1];
 
 			if (digits.some(y => x.includes(y))) {
-				const firstWord = x.match(new RegExp(`/${digits.join('|')}/`));
+				const firstWord = x.match(new RegExp(`${digits.join('|')}`));
 				if (firstWord && firstWord.length > 0) {
 					if (
 						x.indexOf(firstWord[0]) < x.indexOf(firstDig) ||
@@ -52,7 +52,7 @@ export const findSolutionTwo = (
 					.join('')
 					.match(
 						new RegExp(
-							`/${digits.map(y => y.split('').reverse().join('')).join('|')}/`
+							`${digits.map(y => y.split('').reverse().join('')).join('|')}`
 						)
 					);
 				if (lastWord && lastWord.length > 0) {
