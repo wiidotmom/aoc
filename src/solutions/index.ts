@@ -6,6 +6,7 @@ import y2019 from './2019';
 import y2020 from './2020';
 import y2021 from './2021';
 import y2022 from './2022';
+import y2023 from './2023';
 
 export interface Solution {
 	findSolutionOne?: { (input: any): number | string };
@@ -27,6 +28,7 @@ const years: { [key: number]: any[][] } = {
 	2020: y2020.map(map),
 	2021: y2021.map(map),
 	2022: y2022.map(map),
+	2023: y2023.map(map),
 };
 
 export default years;

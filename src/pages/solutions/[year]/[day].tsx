@@ -79,7 +79,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 							fontWeight: 400,
 						}}
 					>
-						{'**'.substring(0, solutions.filter(x => x != 0).length)}
+						{'**'.substring(0, solutions.filter(x => x != 0).length - 1)}
 					</span>
 				</h2>
 				<hr />
