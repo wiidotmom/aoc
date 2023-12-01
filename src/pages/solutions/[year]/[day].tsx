@@ -146,7 +146,11 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 				</ButtonGroup>
 				{showInput ? (
 					<InputDisplay>
-						{solutions[2].join ? solutions[2].join('\n') : solutions[2]}
+						{solutions[2]
+							? solutions[2].join
+								? solutions[2].join('\n')
+								: solutions[2]
+							: `This problem hasn't been released yet.`}
 					</InputDisplay>
 				) : (
 					<></>
