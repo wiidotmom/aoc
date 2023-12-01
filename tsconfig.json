@@ -105,6 +105,6 @@
 	"ts-node": {
 		"require": ["tsconfig-paths/register"]
 	},
-	"include": ["next-env.d.ts", "global.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }
