@@ -150,7 +150,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 							? solutions[2].join
 								? solutions[2].join('\n')
 								: solutions[2]
-							: `This problem hasn't been released yet.`}
+							: `This day hasn't been released yet.`}
 					</InputDisplay>
 				) : (
 					<></>
