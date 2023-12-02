@@ -14,6 +14,9 @@ import { formatDay } from 'lib/calendar';
 const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 	solutions,
 	timings,
+}: {
+	solutions: any[];
+	timings: number[];
 }) => {
 	const { year, day } = useContext(DayContext);
 	const { year: routerYear, day: routerDay } = useRouter().query;
@@ -79,7 +82,10 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 							fontWeight: 400,
 						}}
 					>
-						{'**'.substring(0, solutions.filter(x => x != 0).length - 1)}
+						{'**'.substring(
+							0,
+							solutions.filter((x: number) => x != 0).length - 1
+						)}
 					</span>
 				</h2>
 				<hr />
