@@ -8,3 +8,7 @@ export function characterCounts(str: string) {
 		return a;
 	}, {} as { [key: string]: number });
 }
+
+export function isNumber(str: string): boolean {
+	return !Number.isNaN(+str);
+}

@@ -1,4 +1,4 @@
-import { sum } from 'utils';
+import { isNumber, sum } from 'utils';
 
 import input from './input';
 
@@ -9,7 +9,7 @@ export const findSolutionOne = (
 ): number => {
 	return sum(
 		...input.map(x => {
-			const digits = x.split('').filter(y => !Number.isNaN(+y));
+			const digits = x.split('').filter(y => isNumber(y));
 			return +(digits[0] + digits[digits.length - 1]);
 		})
 	);
@@ -32,7 +32,7 @@ export const findSolutionTwo = (
 
 	return sum(
 		...input.map(x => {
-			const digs = x.split('').filter(y => !Number.isNaN(+y));
+			const digs = x.split('').filter(y => isNumber(y));
 			let firstDig = digs[0];
 			let lastDig = digs[digs.length - 1];
 
