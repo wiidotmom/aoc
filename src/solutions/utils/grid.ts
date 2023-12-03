@@ -38,6 +38,23 @@ export function createIntegerGridFromString(str: string): Grid<number> {
 	return grid;
 }
 
+export function createStringGridFromString(
+	str: string,
+	defaultValue: string
+): Grid<string> {
+	const grid = new Grid<string>(defaultValue);
+
+	let array = str.split('\n').map(x => x.split(''));
+
+	for (let y = 0; y < array.length; y++) {
+		for (let x = 0; x < array[0].length; x++) {
+			grid.set(x, y, array[y][x]);
+		}
+	}
+
+	return grid;
+}
+
 /**
  * Used for 2D spatial data manipulation
  */
@@ -84,7 +101,11 @@ export class Grid<T> {
 	}
 
 	public set(x: number, y: number, value: T) {
-		this.grid.set(Grid.pointToString(x, y), value);
+		if (value != this.defaultValue) {
+			this.grid.set(Grid.pointToString(x, y), value);
+		} else {
+			this.grid.delete(Grid.pointToString(x, y));
+		}
 	}
 
 	public delete(x: number, y: number) {
