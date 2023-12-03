@@ -48,7 +48,9 @@ export function createStringGridFromString(
 
 	for (let y = 0; y < array.length; y++) {
 		for (let x = 0; x < array[0].length; x++) {
-			grid.set(x, y, array[y][x]);
+			if (array[y][x] != defaultValue) {
+				grid.set(x, y, array[y][x]);
+			}
 		}
 	}
 
@@ -101,11 +103,7 @@ export class Grid<T> {
 	}
 
 	public set(x: number, y: number, value: T) {
-		if (value != this.defaultValue) {
-			this.grid.set(Grid.pointToString(x, y), value);
-		} else {
-			this.grid.delete(Grid.pointToString(x, y));
-		}
+		this.grid.set(Grid.pointToString(x, y), value);
 	}
 
 	public delete(x: number, y: number) {
