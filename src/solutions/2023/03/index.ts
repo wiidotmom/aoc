@@ -39,7 +39,7 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 
 	let sum = 0;
 	const points = grid.points;
-	points.forEach(({ x, y, value }) => {
+	points.forEach(({ x, y }) => {
 		if (grid.get(x, y) == '*') {
 			let neighbors = grid
 				.getNeighbors(x, y, true)
