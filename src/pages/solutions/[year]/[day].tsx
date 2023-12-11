@@ -115,7 +115,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 						<SolutionDescription>
 							My solution is <SolutionText>{solutions[1]}</SolutionText> (found
 							in{' '}
-							{timings[0] >= 1000
+							{timings[1] >= 1000
 								? `${(timings[1] / 1000).toFixed(4)}s`
 								: `${timings[1].toFixed(4)}ms`}
 							)
