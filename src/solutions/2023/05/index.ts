@@ -1,114 +1,103 @@
+import 'utils';
+
 import input from './input';
+
+type Map = [dest: number, src: number, length: number];
+type Range = [start: number, end: number];
 
 export const parseInput = () => input.split('\n\n');
 
-const findMapping = (mapSet: number[][], num: number[]): number[][] => {
-	for (const map of mapSet) {
-		const [destStart, srcStart, length] = map;
-		const [start, l] = num;
-
-		if (start >= srcStart && start < srcStart + length) {
-			let toReturn = [
-				[destStart + (start - srcStart), srcStart + length - start],
-			];
-			if (start + l > srcStart + length) {
-				toReturn.push([srcStart + length, start + l - (srcStart + length)]);
-			}
-			return toReturn;
-		} else if (srcStart > start && srcStart < start + l) {
-			let toReturn = [[destStart, start + l - srcStart]];
-			if (start < srcStart) {
-				toReturn.push([start, srcStart - start]);
-			}
-			if (start + l > srcStart + length) {
-				toReturn.push([srcStart + length, start + l - (srcStart + length)]);
-			}
-			return toReturn;
-		}
-	}
-	return [num];
-};
-
-const generateMapping = (line: number[]) => {
-	const destStart = line[0];
-	const srcStart = line[1];
-	const length = line[2];
-
-	let dest: number[] = [];
-	let src: number[] = [];
-
-	return [destStart, srcStart, length];
+const findMapping = (ranges: Range[], mapSet: Map[]) => {
+	return ranges
+		.map(([start, end]) => {
+			let overlaps = mapSet.filter(
+				([, src, length]) => start <= src + length - 1 && end >= src
+			);
+			if (overlaps.length == 0) return [[start, end]] as Range[];
+			return overlaps.flatMap(([dest, src, length]) => {
+				const destDiff = dest - src;
+				const toReturn = [
+					[
+						Math.max(start, src) + destDiff,
+						Math.min(src + length - 1, end) + destDiff,
+					],
+				];
+				if (src > start) toReturn.push([start, src - 1]);
+				if (end > src + length - 1) toReturn.push([src + length, end]);
+				return toReturn;
+			}) as Range[];
+		})
+		.flat(1)
+		.sort(([a], [b]) => a - b);
 };
 
 export const findSolutionOne = (input: ReturnType<typeof parseInput>) => {
 	const seeds = input[0]
 		.replace('seeds: ', '')
 		.split(' ')
-		.map(x => [+x, 1]);
+		.map(x => +x)
+		.chunk(1)
+		.map(x => [x[0], 1])
+		.map(([start, length]) => [start, start + length - 1]) as Range[];
 
-	const mapSets = input
-		.slice(1)
-		.map(x =>
-			x
-				.split('\n')
-				.slice(1)
-				.map(y => y.split(' ').map(z => +z))
-		)
-		.map(x => x.map(generateMapping));
-
-	const locations = seeds.map(x => {
-		let mapping: number[][] = [];
-		for (const mapSet of mapSets) {
-			mapping = mapping.map(y => findMapping(mapSet, y)).flat();
-		}
-		return mapping;
-	});
+	const mapSets = input.slice(1).map(x =>
+		x
+			.split('\n')
+			.slice(1)
+			.map(y => y.split(' ').map(z => +z))
+	) as Map[][];
 
 	return Math.min(
-		...locations
-			.flat()
+		...mapSets
+			.reduce((ranges, mapSet) => findMapping(ranges, mapSet), seeds)
 			.map(x => x[0])
-			.filter(x => x != 0)
+			.flat()
+			.filter(x => x !== 0)
 	);
 };
 
+/**
+ * Fuck me
+ */
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
-	let seedsInput = input[0]
+	const seeds = input[0]
 		.replace('seeds: ', '')
 		.split(' ')
-		.map(x => +x);
+		.map(x => +x)
+		.chunk(2)
+		.map(([start, length]) => [start, start + length - 1]) as Range[];
 
-	const seeds = seedsInput
-		.map((seed, i) => {
-			if (i % 2 != 0) return -1;
-			return [seed, seedsInput[i + 1]];
-		})
-		.filter(x => x != -1) as number[][];
+	const mapSets = input.slice(1).map(x =>
+		x
+			.split('\n')
+			.slice(1)
+			.map(y => y.split(' ').map(z => +z))
+	) as Map[][];
 
-	const mapSets = input
-		.slice(1)
-		.map(x =>
-			x
-				.split('\n')
-				.slice(1)
-				.map(y => y.split(' ').map(z => +z))
-		)
-		.map(x => x.map(generateMapping));
+	const reversedMapSets = mapSets
+		.map(x => x.map(([dest, src, length]) => [src, dest, length]))
+		.reverse();
 
-	const locations = seeds.map(x => {
-		let mapping: number[][] = [x];
-		for (const mapSet of mapSets) {
-			mapping = mapping.map(y => findMapping(mapSet, y)).flat();
+	const [maxSrc, , maxLength] =
+		reversedMapSets[0][reversedMapSets[0].length - 1]!;
+	const maxSeed = maxSrc + maxLength;
+	for (let seed = 0; seed <= maxSeed; seed++) {
+		let n = seed;
+		for (const mapSet of reversedMapSets) {
+			for (const map of mapSet) {
+				const [dest, src, length] = map;
+				if (src <= n && n < src + length - 1) {
+					n += dest - src;
+					break;
+				}
+			}
 		}
-		return mapping;
-	});
-
-	return Math.min(
-		...locations
-			.flat()
-			.map(x => x[0])
-			.filter(x => x != 0)
-	);
+		for (const [start, end] of seeds) {
+			if (start <= n && n <= end) {
+				return seed;
+			}
+		}
+	}
 };
 
-console.log(findSolutionTwo(parseInput()));
+export { input };
