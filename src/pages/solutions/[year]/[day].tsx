@@ -94,7 +94,11 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 						<h3>Part One</h3>
 						<SolutionDescription>
 							My solution is <SolutionText>{solutions[0]}</SolutionText> (found
-							in {timings[0].toFixed(4)}ms)
+							in{' '}
+							{timings[0] >= 1000
+								? `${(timings[0] / 1000).toFixed(4)}s`
+								: `${timings[0].toFixed(4)}ms`}
+							)
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (
@@ -110,7 +114,11 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 						<h3>Part Two</h3>
 						<SolutionDescription>
 							My solution is <SolutionText>{solutions[1]}</SolutionText> (found
-							in {timings[1].toFixed(4)}ms)
+							in{' '}
+							{timings[0] >= 1000
+								? `${(timings[0] / 1000).toFixed(4)}s`
+								: `${timings[0].toFixed(4)}ms`}
+							)
 						</SolutionDescription>
 					</SolutionGroup>
 				) : (
