@@ -5,7 +5,8 @@ import * as day02 from './02';
 import * as day03 from './03';
 import * as day04 from './04';
 import * as day05 from './05';
+import * as day06 from './06';
 
-const solutions: Solution[] = [day01, day02, day03, day04, day05];
+const solutions: Solution[] = [day01, day02, day03, day04, day05, day06];
 
 export default solutions;
