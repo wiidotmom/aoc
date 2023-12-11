@@ -98,6 +98,7 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 			}
 		}
 	}
+	return -1;
 };
 
 export { input };
