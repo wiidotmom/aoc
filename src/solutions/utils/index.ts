@@ -8,6 +8,7 @@ export * from './bst';
 declare global {
 	interface Array<T> {
 		chunk(size: number): T[][];
+		pairs(): T[][];
 		unique(): boolean;
 	}
 }
@@ -24,4 +25,14 @@ Array.prototype.unique = function <T>(): boolean {
 		set.add(this[i]);
 	}
 	return set.size == this.length;
+};
+
+Array.prototype.pairs = function <T>(): T[][] {
+	let pairs: T[][] = [];
+	for (let i = 0; i < this.length; i++) {
+		if (i + 1 < this.length) {
+			pairs.push([this[i], this[i + 1]]);
+		}
+	}
+	return pairs;
 };

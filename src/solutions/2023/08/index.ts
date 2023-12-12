@@ -1,7 +1,7 @@
 import 'utils';
 
 import input from './input';
-import { lcm, lcmMany } from 'utils';
+import { lcmMany } from 'utils';
 
 export const parseInput = () => input.split('\n\n');
 
