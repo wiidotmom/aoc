@@ -92,7 +92,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 							</select>
 						</SelectGroup>
 						<LinkGroup>
-							<Link href={`https://github.com/iGalaxyYT/aoc`} passHref>
+							<Link href={`https://github.com/wiidotmom/aoc`} passHref>
 								<NavLink target="_blank">
 									<GitHub /> Source Code
 								</NavLink>

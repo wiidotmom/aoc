@@ -32,7 +32,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 				<meta name="title" content={`aoc - ${routerYear}, Day ${routerDay}`} />
 				<meta
 					name="description"
-					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+					content="🎄 igalaxy's Advent of Code solutions - language of choice is TypeScript."
 				/>
 
 				<meta property="og:type" content="website" />
@@ -46,12 +46,12 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 				/>
 				<meta
 					property="og:description"
-					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+					content="🎄 igalaxy's Advent of Code solutions - language of choice is TypeScript."
 				/>
-				<meta
+				{/* <meta
 					property="og:image"
 					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=180px&widths=400&heights=400&images=https%3A%2F%2Fcdn.igalaxy.dev&images=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fremojansen%2Flogo.ts%40master%2Fts.svg`}
-				/>
+				/> */}
 
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta
@@ -64,12 +64,12 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 				/>
 				<meta
 					property="twitter:description"
-					content="🎄 iGalaxy's Advent of Code solutions - language of choice is TypeScript."
+					content="🎄 igalaxy's Advent of Code solutions - language of choice is TypeScript."
 				/>
-				<meta
+				{/* <meta
 					property="twitter:image"
 					content={`https://aoc-image-gen.vercel.app/**Day%20${routerDay}**,%20${routerYear}.png?theme=dark&md=1&fontSize=180px&widths=400&heights=400&images=https%3A%2F%2Fcdn.igalaxy.dev&images=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fremojansen%2Flogo.ts%40master%2Fts.svg`}
-				/>
+				/> */}
 			</Head>
 			<PageContent>
 				<h2>
@@ -147,7 +147,7 @@ const Day: NextPage<{ solutions: any[]; timings: number[] }> = ({
 						</CodeLink>
 					</Link>
 					<Link
-						href={`https://github.com/iGalaxyYT/aoc/blob/main/src/solutions/${year}/${formatDay(
+						href={`https://github.com/wiidotmom/aoc/blob/main/src/solutions/${year}/${formatDay(
 							day
 						)}/index.ts`}
 						passHref

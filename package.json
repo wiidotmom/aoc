@@ -11,14 +11,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/iGalaxyYT/aoc.git"
+		"url": "git+https://github.com/wiidotmom/aoc.git"
 	},
-	"author": "Mallory Hayr <hey@igalaxy.dev>",
+	"author": "igalaxy <hey@igalaxy.dev>",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/iGalaxyYT/aoc/issues"
+		"url": "https://github.com/wiidotmom/aoc/issues"
 	},
-	"homepage": "https://github.com/iGalaxyYT/aoc#readme",
+	"homepage": "https://github.com/wiidotmom/aoc#readme",
 	"devDependencies": {
 		"@types/node": "^14.14.10",
 		"@types/node-fetch": "^2.5.7",
