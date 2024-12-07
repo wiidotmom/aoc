@@ -102,8 +102,16 @@ export class Grid<T> {
 			: this.defaultValue;
 	}
 
+	public getFromPoint(point: Vec2d) {
+		return this.get(point.x, point.y);
+	}
+
 	public set(x: number, y: number, value: T) {
 		this.grid.set(Grid.pointToString(x, y), value);
+	}
+
+	public setWithPoint(point: Vec2d, value: T) {
+		return this.set(point.x, point.y, value);
 	}
 
 	public delete(x: number, y: number) {
@@ -165,6 +173,13 @@ export function visualizeBooleanGrid(grid: Grid<boolean>, on = '█', off = '░
 	return grid
 		.toArray()
 		.map(x => x.map(y => (y ? on : off)))
+		.map(x => x.join(''))
+		.join('\n');
+}
+
+export function visualizeStringGrid(grid: Grid<string>) {
+	return grid
+		.toArray()
 		.map(x => x.join(''))
 		.join('\n');
 }
