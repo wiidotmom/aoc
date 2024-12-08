@@ -43,74 +43,46 @@ export const findSolutionOne = (input: ReturnType<typeof parseInput>) => {
 };
 
 export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
-	const mas = 'MAS';
-
 	const grid = createStringGridFromString(input, '.');
 
 	let xmasCount = 0;
-	let centers = new Set<Vec2d>();
 	grid.points.forEach(point => {
-		if (point.value == mas[0]) {
-			for (const direction of [Direction.DOWN_RIGHT, Direction.UP_RIGHT]) {
-				if (
-					direction == Direction.DOWN_RIGHT &&
-					centers.has(vec2d(point.x + 1, point.y - 1))
+		if (point.value == 'A') {
+			const topLeft = grid.getFromPoint(
+				vec2d(
+					point.x + vec2dFromDirection(Direction.UP_LEFT).x,
+					point.y + vec2dFromDirection(Direction.UP_LEFT).y
 				)
-					continue;
-				if (
-					direction == Direction.UP_RIGHT &&
-					centers.has(vec2d(point.x + 1, point.y + 1))
+			);
+			const topRight = grid.getFromPoint(
+				vec2d(
+					point.x + vec2dFromDirection(Direction.UP_RIGHT).x,
+					point.y + vec2dFromDirection(Direction.UP_RIGHT).y
 				)
-					continue;
-				let diff = vec2dFromDirection(direction);
-				let isXmas = true;
-				for (let i = 1; i < mas.length; i++) {
-					if (grid.get(point.x + diff.x * i, point.y + diff.y * i) != mas[i])
-						isXmas = false;
-				}
-				let other = vec2d(0, 0);
-				if (direction == Direction.DOWN_RIGHT) {
-					for (const otherDirection of [
-						Direction.DOWN_LEFT,
-						Direction.UP_RIGHT,
-					]) {
-						diff = vec2dFromDirection(otherDirection);
-						if (otherDirection == Direction.DOWN_LEFT) {
-							other = vec2d(point.x + 2, point.y);
-						} else {
-							other = vec2d(point.x, point.y - 2);
-						}
-					}
-				} else {
-					for (const otherDirection of [
-						Direction.UP_LEFT,
-						Direction.DOWN_RIGHT,
-					]) {
-						diff = vec2dFromDirection(otherDirection);
-						if (otherDirection == Direction.UP_LEFT) {
-							other = vec2d(point.x + 2, point.y);
-						} else {
-							other = vec2d(point.x, point.y + 2);
-						}
-					}
-				}
-				for (let i = 1; i < mas.length; i++) {
-					if (grid.get(other.x + diff.x * i, point.y + diff.y * i) != mas[i])
-						isXmas = false;
-				}
+			);
+			const bottomLeft = grid.getFromPoint(
+				vec2d(
+					point.x + vec2dFromDirection(Direction.DOWN_LEFT).x,
+					point.y + vec2dFromDirection(Direction.DOWN_LEFT).y
+				)
+			);
+			const bottomRight = grid.getFromPoint(
+				vec2d(
+					point.x + vec2dFromDirection(Direction.DOWN_RIGHT).x,
+					point.y + vec2dFromDirection(Direction.DOWN_RIGHT).y
+				)
+			);
 
-				if (isXmas) {
-					xmasCount++;
-					if (direction == Direction.DOWN_RIGHT) {
-						centers.add(vec2d(point.x + 1, point.y - 1));
-					} else {
-						centers.add(vec2d(point.x + 1, point.y + 1));
-					}
-				}
-			}
+			const isXmas =
+				((topLeft == 'M' && bottomRight == 'S') ||
+					(topLeft == 'S' && bottomRight == 'M')) &&
+				((bottomLeft == 'M' && topRight == 'S') ||
+					(bottomLeft == 'S' && topRight == 'M'));
+
+			if (isXmas) xmasCount++;
 		}
 	});
 	return xmasCount;
 };
 
-console.log(findSolutionTwo(parseInput()));
+export { input };
