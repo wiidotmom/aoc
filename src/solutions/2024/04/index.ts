@@ -48,6 +48,7 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 	let xmasCount = 0;
 	grid.points.forEach(point => {
 		if (point.value == 'A') {
+			// yeah i'm sorry
 			const topLeft = grid.getFromPoint(
 				vec2d(
 					point.x + vec2dFromDirection(Direction.UP_LEFT).x,
