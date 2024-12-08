@@ -56,13 +56,13 @@ export const findSolutionTwo = (input: ReturnType<typeof parseInput>) => {
 		});
 
 		if (!isCorrect) {
-			const sorted = order.toSorted((a, b) => {
+			order.sort((a, b) => {
 				if (edges.get(a)?.has(b)) {
 					return -1;
 				}
 				return 0;
 			});
-			sum += sorted[Math.floor(sorted.length / 2)];
+			sum += order[Math.floor(order.length / 2)];
 		}
 	});
 
