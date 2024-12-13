@@ -92,6 +92,16 @@ export class Grid<T> {
 		};
 	}
 
+	public isInBounds(x: number, y: number) {
+		const bounds = this.bounds;
+		return (
+			x >= bounds.min.x &&
+			y >= bounds.min.y &&
+			x <= bounds.max.x &&
+			y <= bounds.max.y
+		);
+	}
+
 	public static pointToString(x: number, y: number) {
 		return `${x},${y}`;
 	}
