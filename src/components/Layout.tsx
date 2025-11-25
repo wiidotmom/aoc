@@ -35,6 +35,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 			2022: sum(...years[2022].map(getStarCount)),
 			2023: sum(...years[2023].map(getStarCount)),
 			2024: sum(...years[2024].map(getStarCount)),
+			2025: sum(...years[2025].map(getStarCount)),
 		};
 	}
 
@@ -58,7 +59,8 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 								}}
 							>
 								{[
-									2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015,
+									2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016,
+									2015,
 								].map(x => (
 									<option
 										key={`year${x}`}
@@ -78,7 +80,7 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
 									);
 								}}
 							>
-								{[...Array(25).keys()]
+								{[...Array(year >= 2025 ? 12 : 25).keys()]
 									.map(x => x + 1)
 									.map(x => (
 										<option
